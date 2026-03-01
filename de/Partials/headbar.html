@@ -1,0 +1,520 @@
+<!--
+==============================================================================
+    __    _ ____            __  ___           _         _____                 _
+   / /   (_) __ \____ _    /  |/  /_  _______(_)____   / ___/___  ______   __(_)_______  _____
+  / /   / / /_/ / __ `/   / /|_/ / / / / ___/ / ___/   \__ \/ _ \/ ___/ | / / / ___/ _ \/ ___/
+ / /___/ / ____/ /_/ /   / /  / / /_/ (__  ) / /__    ___/ /  __/ /   | |/ / / /__/  __(__  )
+/_____/_/_/    \__,_/   /_/  /_/\__,_/____/_/\___/   /____/\___/_/    |___/_/\___/\___/____/
+
+   LiPa Music Services – Abteilung Webentwicklung
+   © 2026 LiPa Music Services GbR
+   https://www.lipamusicservices.com
+==============================================================================
+-->
+<header class="LipaHead" role="banner">
+  <style>
+    /* =========================================================
+       LiPa – Headbar (INLINE)
+       - onepager anchor nav
+       - sticky + blur
+       - desktop + burger
+       - active section highlight
+       ========================================================= */
+
+    :root{
+      --bg0:#0b0d10;
+      --bg1:rgba(15,18,23,.72);
+      --card:rgba(255,255,255,.06);
+      --border:rgba(255,255,255,.12);
+
+      --text:#f1f4f8;
+      --muted:rgba(241,244,248,.72);
+
+      --accent:#35ff7a;
+      --accent2:#86ffd0;
+
+      --shadow:0 18px 55px rgba(0,0,0,.45);
+      --radius:16px;
+
+      --container:1120px;
+      --h:70px;
+    }
+
+    /* Page helper (optional): if your page doesn’t already have this */
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; }
+
+    .LipaHead{
+      position:sticky;
+      top:0;
+      z-index:9999;
+      background:linear-gradient(to bottom, rgba(0,0,0,.58), rgba(0,0,0,0));
+      padding:10px 12px;
+    }
+
+    .LipaHead__bar{
+      max-width:var(--container);
+      height:var(--h);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+
+      background:var(--bg1);
+      border:1px solid var(--border);
+      border-radius:calc(var(--radius) + 6px);
+      box-shadow:var(--shadow);
+
+      padding:0 14px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Brand */
+    .LipaHead__brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:var(--text);
+      min-width:220px;
+    }
+
+    .LipaHead__mark{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      background:
+        radial-gradient(120% 120% at 10% 10%, rgba(53,255,122,.65), rgba(53,255,122,0) 55%),
+        radial-gradient(120% 120% at 90% 90%, rgba(134,255,208,.35), rgba(134,255,208,0) 55%),
+        rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 14px 35px rgba(0,0,0,.35);
+      position:relative;
+      flex:0 0 auto;
+    }
+    .LipaHead__mark::after{
+      content:"";
+      position:absolute;
+      inset:9px;
+      border-radius:10px;
+      border:1px solid rgba(53,255,122,.55);
+      opacity:.55;
+    }
+
+    .LipaHead__title{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+      gap:2px;
+    }
+    .LipaHead__name{
+      font-weight:900;
+      letter-spacing:.2px;
+      font-size:12.5pt;
+      text-transform:uppercase;
+    }
+    .LipaHead__tag{
+      font-size:10.2pt;
+      color:var(--muted);
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+
+    /* Desktop nav */
+    .LipaHead__nav{
+      display:flex;
+      align-items:center;
+      gap:4px;
+      flex:1;
+      justify-content:center;
+    }
+    .LipaHead__nav a{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      padding:10px 10px;
+      border-radius:12px;
+      text-decoration:none;
+
+      color:rgba(241,244,248,.86);
+      font-weight:800;
+      font-size:10.5pt;
+      letter-spacing:.15px;
+
+      transition: transform .15s ease, background .15s ease, color .15s ease;
+      outline:none;
+    }
+    .LipaHead__nav a:hover{
+      background:rgba(255,255,255,.07);
+      transform: translateY(-1px);
+    }
+    .LipaHead__nav a:focus-visible{
+      box-shadow:0 0 0 3px rgba(53,255,122,.35);
+    }
+
+    .LipaHead__nav a.is-active{
+      background:rgba(53,255,122,.12);
+      color:var(--text);
+    }
+    .LipaHead__nav a.is-active::after{
+      content:"";
+      position:absolute;
+      left:10px; right:10px; bottom:6px;
+      height:2px;
+      border-radius:2px;
+      background:linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity:.9;
+    }
+
+    /* Right side actions */
+    .LipaHead__actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:220px;
+      justify-content:flex-end;
+    }
+
+    .LipaHead__iconBtn{
+      width:40px;
+      height:40px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:12px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      text-decoration:none;
+      color:var(--text);
+      transition: transform .15s ease, background .15s ease;
+    }
+    .LipaHead__iconBtn:hover{
+      background:rgba(255,255,255,.09);
+      transform: translateY(-1px);
+    }
+
+    .LipaHead__lang{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .LipaHead__lang a{
+      text-decoration:none;
+      font-weight:900;
+      font-size:10pt;
+      letter-spacing:.35px;
+      color:rgba(241,244,248,.78);
+      padding:6px 8px;
+      border-radius:999px;
+      transition: background .15s ease, color .15s ease;
+    }
+    .LipaHead__lang a:hover{ background:rgba(255,255,255,.07); color:var(--text); }
+    .LipaHead__lang a.is-active{
+      background:rgba(53,255,122,.14);
+      color:var(--text);
+      border:1px solid rgba(53,255,122,.28);
+    }
+
+    /* Burger */
+    .LipaHead__burger{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      cursor:pointer;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .LipaHead__burger:hover{ background:rgba(255,255,255,.09); transform: translateY(-1px); }
+    .LipaHead__burger i{
+      display:block;
+      width:18px;
+      height:2px;
+      background:rgba(241,244,248,.92);
+      border-radius:2px;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .LipaHead__burger[aria-expanded="true"] i:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+    .LipaHead__burger[aria-expanded="true"] i:nth-child(2){ opacity:0; }
+    .LipaHead__burger[aria-expanded="true"] i:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+
+    /* Mobile panel */
+    .LipaMobile{
+      max-width:var(--container);
+      margin:10px auto 0 auto;
+      border-radius:calc(var(--radius) + 6px);
+      background:rgba(15,18,23,.92);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      overflow:hidden;
+
+      display:none;
+    }
+    .LipaMobile.is-open{ display:block; }
+
+    .LipaMobile__grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:0;
+    }
+    .LipaMobile__list{
+      list-style:none;
+      margin:0;
+      padding:10px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .LipaMobile__list a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      text-decoration:none;
+      padding:12px 12px;
+      border-radius:14px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      color:rgba(241,244,248,.9);
+      font-weight:900;
+      letter-spacing:.15px;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .LipaMobile__list a:hover{
+      background:rgba(53,255,122,.10);
+      transform: translateY(-1px);
+    }
+    .LipaMobile__list a small{
+      color:rgba(241,244,248,.55);
+      font-weight:800;
+    }
+
+    .LipaMobile__bottom{
+      padding:10px 12px 12px 12px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      border-top:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+    }
+    .LipaMobile__social{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .LipaHead__nav{ display:none; }
+      .LipaHead__burger{ display:inline-flex; }
+      .LipaHead__brand{ min-width:auto; }
+      .LipaHead__actions{ min-width:auto; }
+      :root{ --h:64px; }
+    }
+
+    @media (max-width: 520px){
+      .LipaHead__tag{ display:none; }
+      .LipaHead__name{ font-size:11.8pt; }
+      .LipaHead__lang{ display:none; } /* keep it clean on tiny screens */
+    }
+  </style>
+
+  <div class="LipaHead__bar">
+    <!-- Brand -->
+    <a class="LipaHead__brand" href="#top" aria-label="Back to top">
+      <span class="LipaHead__mark" aria-hidden="true"></span>
+      <span class="LipaHead__title">
+        <span class="LipaHead__name">Justin Zitt</span>
+        <span class="LipaHead__tag">Pianist • Composer • Amsterdam</span>
+      </span>
+    </a>
+
+    <!-- Desktop Nav (anchors) -->
+    <nav class="LipaHead__nav" aria-label="Main navigation">
+      <a class="js-nav" href="#about"   data-target="about">ABOUT</a>
+      <a class="js-nav" href="#frigo"   data-target="frigo">FRIGO</a>
+      <a class="js-nav" href="#projects" data-target="projects">PROJECTS</a>
+      <a class="js-nav" href="#live"    data-target="live">LIVE</a>
+      <a class="js-nav" href="#media"   data-target="media">MEDIA</a>
+      <a class="js-nav" href="#contact" data-target="contact">CONTACT</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="LipaHead__actions">
+      <!-- Social (placeholders) -->
+      <a class="LipaHead__iconBtn" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <!-- inline icon -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a class="LipaHead__iconBtn" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17.1 5.6 12 5.6 12 5.6s-5.1 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 3 12a31 31 0 0 0 .1 3.8 3 3 0 0 0 2.1 2.1c1.8.5 6.8.5 6.8.5s5.1 0 6.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 21 12a31 31 0 0 0 0-3.8Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M10 15.2V8.8L16 12l-6 3.2Z" fill="currentColor"/>
+        </svg>
+      </a>
+
+      <!-- Language (adjust links to your structure) -->
+      <div class="LipaHead__lang" aria-label="Language switch">
+        <a class="is-active" href="../en/index.html" aria-label="English">EN</a>
+        <a href="../de/index.html" aria-label="Deutsch">DE</a>
+      </div>
+
+      <!-- Burger -->
+      <button
+        class="LipaHead__burger"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="LipaMobileMenu"
+        aria-expanded="false"
+      >
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="LipaMobileMenu" class="LipaMobile" aria-label="Mobile navigation">
+    <div class="LipaMobile__grid">
+      <ul class="LipaMobile__list">
+        <li><a class="js-nav" href="#about" data-target="about">ABOUT <small>#</small></a></li>
+        <li><a class="js-nav" href="#frigo" data-target="frigo">FRIGO <small>#</small></a></li>
+        <li><a class="js-nav" href="#projects" data-target="projects">PROJECTS <small>#</small></a></li>
+        <li><a class="js-nav" href="#live" data-target="live">LIVE <small>#</small></a></li>
+        <li><a class="js-nav" href="#media" data-target="media">MEDIA <small>#</small></a></li>
+        <li><a class="js-nav" href="#contact" data-target="contact">CONTACT <small>#</small></a></li>
+      </ul>
+
+      <div class="LipaMobile__bottom">
+        <div class="LipaMobile__social" aria-label="Social media">
+          <a class="LipaHead__iconBtn" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a class="LipaHead__iconBtn" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17.1 5.6 12 5.6 12 5.6s-5.1 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 3 12a31 31 0 0 0 .1 3.8 3 3 0 0 0 2.1 2.1c1.8.5 6.8.5 6.8.5s5.1 0 6.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 21 12a31 31 0 0 0 0-3.8Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M10 15.2V8.8L16 12l-6 3.2Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="LipaHead__lang" aria-label="Language switch">
+          <a class="is-active" href="../en/index.html">EN</a>
+          <a href="../de/index.html">DE</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    (function(){
+      const burger = document.querySelector(".LipaHead__burger");
+      const panel  = document.getElementById("LipaMobileMenu");
+      const navLinks = Array.from(document.querySelectorAll(".js-nav"));
+      const desktopLinks = Array.from(document.querySelectorAll(".LipaHead__nav .js-nav"));
+
+      // Open/close mobile panel
+      function setOpen(isOpen){
+        burger.setAttribute("aria-expanded", String(isOpen));
+        panel.classList.toggle("is-open", isOpen);
+      }
+
+      if(burger){
+        burger.addEventListener("click", () => {
+          const isOpen = burger.getAttribute("aria-expanded") === "true";
+          setOpen(!isOpen);
+        });
+      }
+
+      // Close panel on link click (mobile) and do a tiny offset fix for sticky headers
+      function scrollToTarget(id){
+        const el = document.getElementById(id);
+        if(!el) return;
+
+        const headerH = document.querySelector(".LipaHead__bar")?.offsetHeight || 70;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - (headerH + 16);
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+
+      navLinks.forEach(a => {
+        a.addEventListener("click", (e) => {
+          const t = a.getAttribute("data-target");
+          if(!t) return;
+          e.preventDefault();
+          setOpen(false);
+          scrollToTarget(t);
+        });
+      });
+
+      // Active section highlight (IntersectionObserver)
+      const sectionIds = ["about","frigo","projects","live","media","contact"];
+      const sections = sectionIds
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+      function setActive(id){
+        const all = Array.from(document.querySelectorAll(".LipaHead__nav a, .LipaMobile__list a"));
+        all.forEach(a => a.classList.toggle("is-active", a.getAttribute("data-target") === id));
+      }
+
+      if("IntersectionObserver" in window && sections.length){
+        const obs = new IntersectionObserver((entries) => {
+          // pick the most visible entry
+          const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a,b) => (b.intersectionRatio - a.intersectionRatio))[0];
+          if(visible?.target?.id) setActive(visible.target.id);
+        }, {
+          root: null,
+          threshold: [0.15, 0.3, 0.5, 0.7],
+          rootMargin: "-20% 0px -60% 0px"
+        });
+
+        sections.forEach(s => obs.observe(s));
+      }
+
+      // If user lands with a hash, offset-scroll once.
+      if(location.hash && location.hash.length > 1){
+        const id = location.hash.replace("#","");
+        setTimeout(()=>scrollToTarget(id), 10);
+      }
+
+      // ESC closes mobile menu
+      document.addEventListener("keydown", (e) => {
+        if(e.key === "Escape") setOpen(false);
+      });
+
+      // Click outside closes (only when open)
+      document.addEventListener("click", (e) => {
+        const isOpen = burger?.getAttribute("aria-expanded") === "true";
+        if(!isOpen) return;
+        const head = document.querySelector(".LipaHead__bar");
+        if(head && head.contains(e.target)) return;
+        if(panel && panel.contains(e.target)) return;
+        setOpen(false);
+      });
+    })();
+  </script>
+</header>

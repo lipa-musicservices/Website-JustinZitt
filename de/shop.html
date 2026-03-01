@@ -1,0 +1,400 @@
+<!--
+==============================================================================
+
+    __    _ ____            __  ___           _         _____                 _
+   / /   (_) __ \____ _    /  |/  /_  _______(_)____   / ___/___  ______   __(_)_______  _____
+  / /   / / /_/ / __ `/   / /|_/ / / / / ___/ / ___/   \__ \/ _ \/ ___/ | / / / ___/ _ \/ ___/
+ / /___/ / ____/ /_/ /   / /  / / /_/ (__  ) / /__    ___/ /  __/ /   | |/ / / /__/  __(__  )
+/_____/_/_/    \__,_/   /_/  /_/\__,_/____/_/\___/   /____/\___/_/    |___/_/\___/\___/____/
+
+   LiPa Music Services – Abteilung Webentwicklung
+   © 2026 LiPa Music Services GbR
+   https://www.lipamusicservices.com
+
+==============================================================================
+-->
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="./">
+
+  <title>Kontakt – Sandrine Neye</title>
+  <meta name="description" content="Kontakt zu Sandrine Neye – Singer & Songwriter." />
+
+  <!-- Google Font: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Root assets (2 Ebenen hoch) -->
+  <link rel="icon" href="../Resources/Content/Favicon.ico" />
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../Scripts/includes.js"></script>
+  <script defer src="../Scripts/main.js"></script>
+
+<style>
+  html, body{
+    margin:0;
+    padding:0;
+    font-family:"Outfit", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background:#fff;
+    color:#0e1116;
+  }
+
+  :root{
+
+    --container:1120px;
+    --hbH:74px;
+
+    --muted:rgba(14,17,22,.70);
+    --border:rgba(10,16,26,.12);
+
+    --radius:14px;
+  }
+
+  /* Footer nicht in der Luft */
+  #MainContent{
+    min-height: calc(100vh - var(--hbH));
+    display:flex;
+    flex-direction:column;
+    width:100%;
+  }
+
+  .Page{
+    flex:1;
+    width:100%;
+    max-width:var(--container);
+    margin:0 auto;
+    padding:44px 18px 78px;
+    box-sizing:border-box;
+  }
+
+  /* Head */
+  .Title{
+    margin:0;
+    font-size: clamp(34px, 4.2vw, 54px);
+    font-weight:300;              /* war 900 */
+    letter-spacing:0.004em;       /* eleganter statt super-tight */
+    line-height:1.05;
+  }
+
+  .Rule{
+    height:3px;
+    width:56px;
+    background: var(--purple);
+    border-radius:2px;
+    margin:14px 0 0;
+    opacity:.9;
+  }
+
+  .Sub{
+    margin:12px 0 0;
+    color:var(--muted);
+    font-size:16.8px;
+    line-height:1.7;
+    max-width:75ch;
+    font-weight:400;
+  }
+
+  /* Layout */
+  .Wrap{
+    margin-top:26px;
+    display:grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap:18px;
+    align-items:start;
+    max-width:980px;
+  }
+
+  .Card{
+    border:0px solid var(--border);
+    border-radius:var(--radius);
+    background:#fff;
+    padding:18px 18px;
+    box-sizing:border-box;
+  }
+
+  .CardTitle{
+    margin:0 0 10px;
+    font-size:13px;
+    font-weight:600;              /* war 900 */
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color: rgba(14,17,22,.60);
+  }
+
+  /* Contact rows */
+  .ContactList{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .Item{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    padding:12px 12px;
+    border:1px solid rgba(10,16,26,.08);
+    border-radius:12px;
+    background: rgba(10,16,26,.02);
+  }
+
+  .ItemLabel{
+    font-size:12px;
+    font-weight:600;              /* war 900 */
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color: rgba(14,17,22,.55);
+  }
+
+  .ItemValue{
+    font-size:18px;
+    font-weight:500;              /* war 900 */
+    letter-spacing:-0.005em;
+    line-height:1.25;
+    word-break: break-word;
+  }
+
+  a.Link{
+    color: var(--purple);
+    text-decoration:none;
+    border-bottom:2px solid rgba(104,0,104,.20);
+    padding-bottom:2px;
+  }
+  a.Link:hover{
+    color: var(--purpleDark);
+    border-bottom-color: rgba(75,0,75,.35);
+  }
+
+  .Hint{
+    margin-top:10px;
+    color: var(--muted);
+    font-size:14px;
+    line-height:1.65;
+    font-weight:400;              /* war 650 */
+  }
+
+  /* Links list */
+  .Links{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+
+  .Links li{
+    display:flex;
+    gap:10px;
+    align-items:baseline;
+    line-height:1.55;
+  }
+
+  .Chip{
+    min-width:110px;
+    font-size:12px;
+    font-weight:600;              /* war 900 */
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color: rgba(14,17,22,.55);
+  }
+
+  .Url{
+    font-weight:500;              /* war 800 */
+    color: rgba(14,17,22,.86);
+    word-break: break-word;
+  }
+
+  /* =========================
+     Link Icons (inline SVG)
+     ========================= */
+  .Links a.Link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .Icon{
+    width:18px;
+    height:18px;
+    flex:0 0 18px;
+    display:inline-block;
+    color: rgba(14,17,22,.72);
+    transform: translateY(1px);
+  }
+
+  .Links a.Link:hover .Icon{
+    color: var(--purpleDark);
+  }
+
+  .Icon svg{
+    width:100%;
+    height:100%;
+    display:block;
+  }
+
+  @media (max-width: 920px){
+    .Wrap{ grid-template-columns:1fr; max-width:720px; }
+    .Chip{ min-width:96px; }
+
+    .Links a.Link{ gap:9px; }
+    .Icon{ width:17px; height:17px; flex-basis:17px; }
+  }
+</style>
+</head>
+
+<body>
+  <div id="HeadbarSlot"></div>
+
+  <main id="MainContent">
+    <div class="Page">
+
+      <h1 class="Title">Kontakt</h1>
+      <div class="Rule"></div>
+      <p class="Sub">
+        Buchungsanfragen, Projekte, Presse: am besten direkt per E-Mail oder Telefon.
+      </p>
+
+      <section class="Wrap" aria-label="Kontakt">
+
+        <article class="Card">
+          <div class="CardTitle">Direkt</div>
+
+          <div class="ContactList">
+            <div class="Item">
+              <div class="ItemLabel">E-Mail</div>
+              <div class="ItemValue">
+                <a class="Link" href="mailto:info@sandrineneye.de">info@sandrineneye.de</a>
+              </div>
+            </div>
+
+            <div class="Item">
+              <div class="ItemLabel">Telefon</div>
+              <div class="ItemValue">
+                <a class="Link" href="tel:49123456789">+49 123 456789</a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <aside class="Card">
+          <div class="CardTitle">Links</div>
+
+          <ul class="Links" aria-label="Social Links">
+
+            <li>
+              <span class="Chip">Instagram</span>
+              <span class="Url">
+                <a class="Link" href="https://www.instagram.com/sandrine_neye/" target="_blank" rel="noopener">
+                  <span class="Icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M7.5 2.8h9A4.7 4.7 0 0 1 21.2 7.5v9a4.7 4.7 0 0 1-4.7 4.7h-9A4.7 4.7 0 0 1 2.8 16.5v-9A4.7 4.7 0 0 1 7.5 2.8Z" stroke="currentColor" stroke-width="2"/>
+                      <path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor" stroke-width="2"/>
+                      <path d="M17.6 6.6h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  instagram.com/sandrine_neye
+                </a>
+              </span>
+            </li>
+
+            <li>
+              <span class="Chip">YouTube</span>
+              <span class="Url">
+                <a class="Link" href="https://www.youtube.com/@sandrineneye" target="_blank" rel="noopener">
+                  <span class="Icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M21.5 8.2a3.2 3.2 0 0 0-2.3-2.3C17.3 5.4 12 5.4 12 5.4s-5.3 0-7.2.5A3.2 3.2 0 0 0 2.5 8.2 33.6 33.6 0 0 0 2.5 12s0 2.7.3 3.8a3.2 3.2 0 0 0 2.3 2.3c1.9.5 7 .5 7 .5s5.3 0 7.2-.5a3.2 3.2 0 0 0 2.3-2.3c.3-1.1.3-3.8.3-3.8s0-2.7-.3-3.8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M10.3 9.7 15.7 12l-5.4 2.3V9.7Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  youtube.com/@sandrineneye
+                </a>
+              </span>
+            </li>
+
+            <li>
+              <span class="Chip">Spotify</span>
+              <span class="Url">
+                <a class="Link" href="https://open.spotify.com/intl-de/artist/61zOIoHkxLEKAQxIRl2nuf?si=FqQm0DscSDCj8iDrxYn6fQ" target="_blank" rel="noopener">
+                  <span class="Icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M12 21.2a9.2 9.2 0 1 0 0-18.4 9.2 9.2 0 0 0 0 18.4Z" stroke="currentColor" stroke-width="2"/>
+                      <path d="M7.7 10.3c2.9-1 6.7-.8 9.2.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M8.2 13.2c2.4-.7 5.5-.5 7.5.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+                      <path d="M8.7 15.9c1.9-.4 3.8-.3 5.3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+                    </svg>
+                  </span>
+                  open.spotify.com
+                </a>
+              </span>
+            </li>
+
+            <li>
+              <span class="Chip">Facebook</span>
+              <span class="Url">
+                <a class="Link" href="https://www.facebook.com/sandrine.neye" target="_blank" rel="noopener">
+                  <span class="Icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M14 9h2V6.5A2.5 2.5 0 0 0 13.5 4H11a3 3 0 0 0-3 3v2H6v3h2v8h3v-8h2.4L14 12H11V9.3A.3.3 0 0 1 11.3 9H14Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  facebook.com/sandrine.neye
+                </a>
+              </span>
+            </li>
+
+            <li>
+              <span class="Chip">Apple Music</span>
+              <span class="Url">
+                <a class="Link" href="https://music.apple.com/de/artist/sandrine-neye/1629703562" target="_blank" rel="noopener">
+                  <span class="Icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M16.8 13.2c0-1.7 1-2.8 2.2-3.5-0.7-1-1.8-1.6-3.1-1.7-1.3-.1-2.6.8-3.2.8-.7 0-1.7-.8-2.8-.8-2.2.1-4.4 1.8-4.4 5.4 0 1.1.2 2.3.7 3.4.6 1.3 1.5 2.9 2.7 2.9 1.0 0 1.7-.7 3-.7 1.2 0 1.8.7 3 .7 1.3 0 2.1-1.5 2.6-2.8.2-.5.4-1 .5-1.6-1.4-.6-2.2-1.9-2.2-3.5Z" fill="currentColor"/>
+                      <path d="M14.3 4.6c.6-.7 1-1.7.9-2.6-1 .1-2 .7-2.7 1.5-.6.7-1 1.7-.9 2.6 1-.1 2-.6 2.7-1.5Z" fill="currentColor"/>
+                    </svg>
+                  </span>
+                  music.apple.com
+                </a>
+              </span>
+            </li>
+
+            <li>
+              <span class="Chip">Amazon</span>
+              <span class="Url">
+                <a class="Link" href="https://amazon.com/music/player/albums/B0B4384B9K?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_JA5EDlbk90Hg8itzHnL9zrEsY" target="_blank" rel="noopener">
+                  <span class="Icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M6.2 16.3c3.1 2 8.2 2 11.4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M15.8 16.4l2 .2-.8 1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7.2 8.6c1.2-1.1 2.9-1.8 4.8-1.8 3.6 0 6.5 2.3 6.5 5.2 0 1.2-.5 2.3-1.4 3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+                    </svg>
+                  </span>
+                  amazon.com/music
+                </a>
+              </span>
+            </li>
+
+          </ul>
+        </aside>
+
+      </section>
+
+    </div>
+  </main>
+
+  <div id="FootbarSlot"></div>
+  <div id="CookieSlot"></div>
+
+  <noscript>
+    <div style="padding:16px; max-width:900px; margin:0 auto;">
+      Diese Website benötigt JavaScript, um Navigation/Footer korrekt zu laden.
+    </div>
+  </noscript>
+</body>
+</html>

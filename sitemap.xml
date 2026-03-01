@@ -1,0 +1,44 @@
+<!-- ==============================================================================
+
+    __    _ ____            __  ___           _         _____                 _               
+   / /   (_) __ \____ _    /  |/  /_  _______(_)____   / ___/___  ______   __(_)_______  _____
+  / /   / / /_/ / __ `/   / /|_/ / / / / ___/ / ___/   \__ \/ _ \/ ___/ | / / / ___/ _ \/ ___/
+ / /___/ / ____/ /_/ /   / /  / / /_/ (__  ) / /__    ___/ /  __/ /   | |/ / / /__/  __(__  ) 
+/_____/_/_/    \__,_/   /_/  /_/\__,_/____/_/\___/   /____/\___/_/    |___/_/\___/\___/____/  
+
+   LiPa Music Services – Abteilung Webentwicklung
+   © 2026 LiPa Music Services GbR
+   https://www.lipamusicservices.com
+
+============================================================================== -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://USERNAME.github.io/REPO/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://USERNAME.github.io/REPO/Legal/impressum.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://USERNAME.github.io/REPO/Legal/datenschutz.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <!-- OPTIONAL: add more pages here -->
+  <!--
+  <url>
+    <loc>https://USERNAME.github.io/REPO/page.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  -->
+
+</urlset>

@@ -1,0 +1,95 @@
+<footer class="Footbar" role="contentinfo">
+  <div class="Footbar__inner">
+
+    <!-- Brand -->
+    <section class="Footbar__col Footbar__col--brand" aria-label="Brand">
+      <div class="Footbar__brand">Sandrine Neye</div>
+      <div class="Footbar__copy">© <span id="YearSlot"></span></div>
+
+      <div class="Footbar__location">
+        Karlsruhe, Deutschland<br><br>
+        <a class="Footbar__contactLink" href="tel:+49123456789">+49 123 456789</a>
+        <a class="Footbar__contactLink" href="mailto:info@sandrineneye.de">info@sandrineneye.de</a>
+      </div>
+    </section>
+
+    <!-- Pages -->
+    <nav class="Footbar__col Footbar__col--pages" aria-label="Seiten">
+      <div class="Footbar__title">Seiten</div>
+      <ul class="Footbar__list">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./vita.html">Vita</a></li>
+        <li><a href="./concerts.html">Konzerte</a></li>
+        <li><a href="./gallery.html">Galerie</a></li>
+        <li><a href="./projects.html">Projekte</a></li>
+        <li><a href="./press.html">Pressestimmen</a></li>
+        <li><a href="./contact.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <!-- Spacer / optional column (keeps grid balanced on desktop) -->
+    <div class="Footbar__col Footbar__col--spacer" aria-hidden="true"></div>
+
+  </div>
+
+  <!-- Bottom (Social row above line, Legal in bottom bar) -->
+  <div class="Footbar__bottom">
+
+    <!-- Social icons row -->
+    <ul class="FootbarSocialRow" aria-label="Social Links">
+      <li>
+        <a class="FootbarSocialRow__btn" href="https://www.instagram.com/sandrine_neye/" target="_blank" rel="noopener noreferrer" aria-label="Instagram öffnen">
+          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/IG.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+        </a>
+      </li>
+      <li>
+        <a class="FootbarSocialRow__btn" href="https://www.youtube.com/@sandrineneye" target="_blank" rel="noopener noreferrer" aria-label="YouTube öffnen">
+          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/YT.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+        </a>
+      </li>
+      <li>
+        <a class="FootbarSocialRow__btn" href="https://open.spotify.com/intl-de/artist/61zOIoHkxLEKAQxIRl2nuf?si=FqQm0DscSDCj8iDrxYn6fQ" target="_blank" rel="noopener noreferrer" aria-label="Spotify öffnen">
+          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/SP.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+        </a>
+      </li>
+      <li>
+        <a class="FootbarSocialRow__btn" href="https://www.facebook.com/sandrine.neye" target="_blank" rel="noopener noreferrer" aria-label="Facebook öffnen">
+          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/FB.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+        </a>
+      </li>
+      <li>
+        <a class="FootbarSocialRow__btn" href="https://music.apple.com/de/artist/sandrine-neye/1629703562" target="_blank" rel="noopener noreferrer" aria-label="Apple Music öffnen">
+          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/AP.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+        </a>
+      </li>
+      <li>
+        <a class="FootbarSocialRow__btn" href="https://amazon.com/music/player/albums/B0B4384B9K?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_JA5EDlbk90Hg8itzHnL9zrEsY" target="_blank" rel="noopener noreferrer" aria-label="Amazon Music öffnen">
+          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/AZ.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+        </a>
+      </li>
+    </ul>
+
+    <!-- Bottom line: Legal left, Powered center/right -->
+    <div class="Footbar__bottomInner">
+      <nav class="FootbarLegal" aria-label="Rechtliches">
+        <a href="Legal/impressum.html">Impressum</a>
+        <span class="FootbarLegal__sep">•</span>
+        <a href="Legal/datenschutz.html">Datenschutz</a>
+      </nav>
+
+      <div class="Footbar__powered">
+        <a href="https://www.lipamusicservices.com" target="_blank" rel="noopener noreferrer">
+          This Website is powered by LiPa Music Services
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var y = new Date().getFullYear();
+      var slot = document.getElementById("YearSlot");
+      if(slot) slot.textContent = y;
+    })();
+  </script>
+</footer>

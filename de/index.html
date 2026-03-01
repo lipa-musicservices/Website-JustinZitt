@@ -1,0 +1,1189 @@
+<!--
+==============================================================================
+
+    __    _ ____            __  ___           _         _____                 _
+   / /   (_) __ \____ _    /  |/  /_  _______(_)____   / ___/___  ______   __(_)_______  _____
+  / /   / / /_/ / __ `/   / /|_/ / / / / ___/ / ___/   \__ \/ _ \/ ___/ | / / / ___/ _ \/ ___/
+ / /___/ / ____/ /_/ /   / /  / / /_/ (__  ) / /__    ___/ /  __/ /   | |/ / / /__/  __(__  )
+/_____/_/_/    \__,_/   /_/  /_/\__,_/____/_/\___/   /____/\___/_/    |___/_/\___/\___/____/
+
+   LiPa Music Services – Abteilung Webentwicklung
+   © 2026 LiPa Music Services GbR
+   https://www.lipamusicservices.com
+
+==============================================================================
+-->
+<!doctype html>
+<html lang="en" id="top">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Justin Zitt – Pianist & Composer</title>
+  <meta name="description" content="Justin Zitt – pianist, composer, and musician based in Amsterdam. FRIGO album, projects, live dates, media & contact." />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Justin Zitt – Pianist & Composer" />
+  <meta property="og:description" content="FRIGO album, projects, live dates, media & contact." />
+  <!-- TODO: set a proper OG image -->
+  <!-- <meta property="og:image" content="../Resources/OG.jpg" /> -->
+
+  <!-- Favicons (optional) -->
+  <!-- <link rel="icon" href="../Resources/favicon.png" /> -->
+
+  <style>
+    /* =========================================================
+       LiPa – Justin Zitt – Onepager (INLINE)
+       - clean cinematic dark
+       - sections: About / FRIGO / Projects / Live / Media / Contact
+       ========================================================= */
+
+    :root{
+      --bg0:#090b0f;
+      --bg1:#0e1117;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.04);
+      --border:rgba(255,255,255,.12);
+
+      --text:#f1f4f8;
+      --muted:rgba(241,244,248,.70);
+
+      --accent:#35ff7a;
+      --accent2:#86ffd0;
+
+      --shadow:0 18px 55px rgba(0,0,0,.50);
+      --shadow2:0 10px 28px rgba(0,0,0,.38);
+
+      --radius:18px;
+      --container:1120px;
+
+      --sectionPad:82px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 18% -10%, rgba(53,255,122,.10), rgba(0,0,0,0) 60%),
+        radial-gradient(1000px 700px at 85% 10%, rgba(134,255,208,.08), rgba(0,0,0,0) 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; }
+
+    /* subtle film grain */
+    .grain{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.12;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+    }
+
+    .container{
+      width:min(var(--container), calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .Hero{
+      position:relative;
+      padding: 84px 0 34px 0;
+    }
+
+    .Hero__grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .Hero__panel{
+      border-radius:calc(var(--radius) + 8px);
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .Hero__panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 420px at 25% 10%, rgba(53,255,122,.14), rgba(0,0,0,0) 55%),
+        radial-gradient(700px 420px at 95% 35%, rgba(134,255,208,.10), rgba(0,0,0,0) 60%);
+      pointer-events:none;
+    }
+
+    .Hero__left{
+      padding:28px 26px 22px 26px;
+      min-height:360px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      color:var(--muted);
+      font-weight:800;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      font-size:10.5pt;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background:linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 4px rgba(53,255,122,.10);
+    }
+
+    h1{
+      margin:10px 0 10px 0;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height:1.02;
+      letter-spacing:.2px;
+    }
+
+    .Hero__sub{
+      color:var(--muted);
+      font-size:12.2pt;
+      line-height:1.55;
+      max-width:62ch;
+    }
+
+    .Hero__ctaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin-top:6px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      text-decoration:none;
+      font-weight:900;
+      letter-spacing:.2px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); background:rgba(255,255,255,.09); }
+    .btn--primary{
+      background:linear-gradient(90deg, rgba(53,255,122,.22), rgba(134,255,208,.14));
+      border-color:rgba(53,255,122,.30);
+    }
+    .btn--primary:hover{ background:linear-gradient(90deg, rgba(53,255,122,.28), rgba(134,255,208,.18)); }
+
+    .Hero__meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .chip{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+      color:rgba(241,244,248,.82);
+      font-weight:800;
+      font-size:10.2pt;
+    }
+    .chip svg{ opacity:.9; }
+
+    .Hero__right{
+      min-height:360px;
+    }
+
+    .Hero__img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.06) saturate(.95);
+      transform:scale(1.02);
+    }
+
+    .Hero__imgOverlay{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(700px 420px at 25% 15%, rgba(0,0,0,.00), rgba(0,0,0,.52) 70%),
+        linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.58));
+      pointer-events:none;
+    }
+
+    /* =========================================================
+       SECTION WRAPPER
+       ========================================================= */
+    section{
+      scroll-margin-top: 92px; /* sticky headbar offset */
+      padding: var(--sectionPad) 0;
+    }
+
+    .SectionHead{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .SectionHead h2{
+      margin:0;
+      font-size: clamp(24px, 2.4vw, 34px);
+      letter-spacing:.2px;
+    }
+
+    .SectionHead p{
+      margin:0;
+      color:var(--muted);
+      max-width:70ch;
+      line-height:1.55;
+    }
+
+    .card{
+      border-radius:calc(var(--radius) + 6px);
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+
+    .pad{
+      padding:18px;
+    }
+
+    .muted{ color:var(--muted); }
+
+    .hr{
+      height:1px;
+      background:rgba(255,255,255,.10);
+      margin:14px 0;
+    }
+
+    /* About */
+    .About__grid{
+      display:grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .About__photo{
+      width:100%;
+      height:100%;
+      min-height:340px;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.04) saturate(.95);
+    }
+
+    /* FRIGO */
+    .Frigo__hero{
+      display:grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap:0;
+    }
+    .Frigo__img{
+      width:100%;
+      height:100%;
+      min-height:360px;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.05) saturate(.92);
+    }
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:rgba(241,244,248,.86);
+      line-height:1.65;
+    }
+
+    /* Projects */
+    .ProjCard{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      transition: transform .15s ease, background .15s ease;
+    }
+    .ProjCard:hover{ transform: translateY(-2px); background:rgba(255,255,255,.06); }
+    .ProjCard h3{ margin:0 0 6px 0; font-size:13.5pt; }
+    .ProjCard p{ margin:0; color:var(--muted); line-height:1.55; }
+
+    /* Live */
+    .Gig{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+    }
+    .Gig__left{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .dateBox{
+      width:66px;
+      flex:0 0 auto;
+      border-radius:16px;
+      border:1px solid rgba(53,255,122,.26);
+      background:rgba(53,255,122,.10);
+      text-align:center;
+      padding:10px 8px;
+    }
+    .dateBox b{ display:block; font-size:16pt; line-height:1.0; }
+    .dateBox span{ display:block; font-weight:900; letter-spacing:.3px; opacity:.9; }
+
+    .Gig__title{ margin:0; font-weight:900; }
+    .Gig__meta{ margin:2px 0 0 0; color:var(--muted); line-height:1.45; }
+
+    /* Media */
+    .mediaGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .embed{
+      position:relative;
+      width:100%;
+      padding-top:56.25%;
+      background:rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      overflow:hidden;
+    }
+    .embed iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* Contact */
+    .Contact__grid{
+      display:grid;
+      grid-template-columns: 1fr .9fr;
+      gap:18px;
+      align-items:start;
+    }
+    .contactLine{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+    }
+    .contactLine a{ text-decoration:none; font-weight:900; }
+    .small{ font-size:10.5pt; color:var(--muted); }
+
+    /* Footer */
+    footer{
+      padding:36px 0 54px 0;
+      border-top:1px solid rgba(255,255,255,.10);
+      color:rgba(241,244,248,.70);
+    }
+    .footerRow{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .Hero__grid{ grid-template-columns: 1fr; }
+      .Hero__right{ min-height:280px; }
+      .About__grid{ grid-template-columns: 1fr; }
+      .Frigo__hero{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+      .mediaGrid{ grid-template-columns: 1fr; }
+      .Contact__grid{ grid-template-columns: 1fr; }
+      section{ padding: 64px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       HEADBAR (inline, onepager anchors)
+       NOTE: Social links are placeholders -> set real URLs.
+  ========================================================== -->
+  <header class="LipaHead" role="banner">
+    <style>
+      /* ===== Headbar (same as we used before) ===== */
+      :root{
+        --bg0:#0b0d10;
+        --bg1:rgba(15,18,23,.72);
+        --border:rgba(255,255,255,.12);
+        --text:#f1f4f8;
+        --muted:rgba(241,244,248,.72);
+        --accent:#35ff7a;
+        --accent2:#86ffd0;
+        --shadow:0 18px 55px rgba(0,0,0,.45);
+        --radius:16px;
+        --container:1120px;
+        --h:70px;
+      }
+      .LipaHead{ position:sticky; top:0; z-index:9999; background:linear-gradient(to bottom, rgba(0,0,0,.58), rgba(0,0,0,0)); padding:10px 12px; }
+      .LipaHead__bar{
+        max-width:var(--container); height:var(--h); margin:0 auto;
+        display:flex; align-items:center; justify-content:space-between; gap:12px;
+        background:var(--bg1); border:1px solid var(--border); border-radius:calc(var(--radius) + 6px);
+        box-shadow:var(--shadow); padding:0 14px;
+        backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      }
+      .LipaHead__brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); min-width:220px; }
+      .LipaHead__mark{
+        width:36px; height:36px; border-radius:12px;
+        background:
+          radial-gradient(120% 120% at 10% 10%, rgba(53,255,122,.65), rgba(53,255,122,0) 55%),
+          radial-gradient(120% 120% at 90% 90%, rgba(134,255,208,.35), rgba(134,255,208,0) 55%),
+          rgba(255,255,255,.07);
+        border:1px solid rgba(255,255,255,.14);
+        box-shadow:0 14px 35px rgba(0,0,0,.35);
+        position:relative;
+        flex:0 0 auto;
+      }
+      .LipaHead__mark::after{ content:""; position:absolute; inset:9px; border-radius:10px; border:1px solid rgba(53,255,122,.55); opacity:.55; }
+      .LipaHead__title{ display:flex; flex-direction:column; line-height:1.05; gap:2px; }
+      .LipaHead__name{ font-weight:900; letter-spacing:.2px; font-size:12.5pt; text-transform:uppercase; }
+      .LipaHead__tag{ font-size:10.2pt; color:var(--muted); font-weight:600; letter-spacing:.2px; }
+
+      .LipaHead__nav{ display:flex; align-items:center; gap:4px; flex:1; justify-content:center; }
+      .LipaHead__nav a{
+        position:relative; display:inline-flex; align-items:center;
+        padding:10px 10px; border-radius:12px; text-decoration:none;
+        color:rgba(241,244,248,.86); font-weight:800; font-size:10.5pt; letter-spacing:.15px;
+        transition: transform .15s ease, background .15s ease, color .15s ease;
+      }
+      .LipaHead__nav a:hover{ background:rgba(255,255,255,.07); transform: translateY(-1px); }
+      .LipaHead__nav a.is-active{ background:rgba(53,255,122,.12); color:var(--text); }
+      .LipaHead__nav a.is-active::after{
+        content:""; position:absolute; left:10px; right:10px; bottom:6px;
+        height:2px; border-radius:2px;
+        background:linear-gradient(90deg, var(--accent), var(--accent2));
+        opacity:.9;
+      }
+
+      .LipaHead__actions{ display:flex; align-items:center; gap:10px; min-width:220px; justify-content:flex-end; }
+      .LipaHead__iconBtn{
+        width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center;
+        border-radius:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+        text-decoration:none; color:var(--text);
+        transition: transform .15s ease, background .15s ease;
+      }
+      .LipaHead__iconBtn:hover{ background:rgba(255,255,255,.09); transform: translateY(-1px); }
+
+      .LipaHead__lang{
+        display:inline-flex; align-items:center; gap:8px; padding:6px 10px;
+        border-radius:999px; background:rgba(255,255,255,.05);
+        border:1px solid rgba(255,255,255,.12);
+      }
+      .LipaHead__lang a{
+        text-decoration:none; font-weight:900; font-size:10pt; letter-spacing:.35px;
+        color:rgba(241,244,248,.78); padding:6px 8px; border-radius:999px;
+        transition: background .15s ease, color .15s ease;
+      }
+      .LipaHead__lang a:hover{ background:rgba(255,255,255,.07); color:var(--text); }
+      .LipaHead__lang a.is-active{ background:rgba(53,255,122,.14); color:var(--text); border:1px solid rgba(53,255,122,.28); }
+
+      .LipaHead__burger{
+        width:44px; height:44px; border-radius:14px; border:1px solid rgba(255,255,255,.12);
+        background:rgba(255,255,255,.06); cursor:pointer; display:none;
+        align-items:center; justify-content:center; gap:6px;
+        transition: transform .15s ease, background .15s ease;
+      }
+      .LipaHead__burger:hover{ background:rgba(255,255,255,.09); transform: translateY(-1px); }
+      .LipaHead__burger i{ display:block; width:18px; height:2px; background:rgba(241,244,248,.92); border-radius:2px; transition: transform .18s ease, opacity .18s ease; }
+      .LipaHead__burger[aria-expanded="true"] i:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+      .LipaHead__burger[aria-expanded="true"] i:nth-child(2){ opacity:0; }
+      .LipaHead__burger[aria-expanded="true"] i:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+
+      .LipaMobile{
+        max-width:var(--container); margin:10px auto 0 auto;
+        border-radius:calc(var(--radius) + 6px);
+        background:rgba(15,18,23,.92);
+        border:1px solid rgba(255,255,255,.12);
+        box-shadow:var(--shadow);
+        backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+        overflow:hidden; display:none;
+      }
+      .LipaMobile.is-open{ display:block; }
+      .LipaMobile__list{ list-style:none; margin:0; padding:10px; display:flex; flex-direction:column; gap:6px; }
+      .LipaMobile__list a{
+        display:flex; align-items:center; justify-content:space-between; text-decoration:none;
+        padding:12px 12px; border-radius:14px;
+        background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10);
+        color:rgba(241,244,248,.9); font-weight:900; letter-spacing:.15px;
+      }
+      .LipaMobile__list a:hover{ background:rgba(53,255,122,.10); }
+      .LipaMobile__list a small{ color:rgba(241,244,248,.55); font-weight:800; }
+
+      .LipaMobile__bottom{
+        padding:10px 12px 12px 12px; display:flex; gap:10px; align-items:center; justify-content:space-between;
+        border-top:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.03);
+      }
+      .LipaMobile__social{ display:flex; gap:10px; align-items:center; }
+
+      @media (max-width: 980px){
+        .LipaHead__nav{ display:none; }
+        .LipaHead__burger{ display:inline-flex; }
+        .LipaHead__brand{ min-width:auto; }
+        .LipaHead__actions{ min-width:auto; }
+        :root{ --h:64px; }
+      }
+      @media (max-width: 520px){
+        .LipaHead__tag{ display:none; }
+        .LipaHead__name{ font-size:11.8pt; }
+        .LipaHead__lang{ display:none; }
+      }
+    </style>
+
+    <div class="LipaHead__bar">
+      <a class="LipaHead__brand" href="#top" aria-label="Back to top">
+        <span class="LipaHead__mark" aria-hidden="true"></span>
+        <span class="LipaHead__title">
+          <span class="LipaHead__name">Justin Zitt</span>
+          <span class="LipaHead__tag">Pianist • Composer • Amsterdam</span>
+        </span>
+      </a>
+
+      <nav class="LipaHead__nav" aria-label="Main navigation">
+        <a class="js-nav" href="#about"    data-target="about">ABOUT</a>
+        <a class="js-nav" href="#frigo"    data-target="frigo">FRIGO</a>
+        <a class="js-nav" href="#projects" data-target="projects">PROJECTS</a>
+        <a class="js-nav" href="#live"     data-target="live">LIVE</a>
+        <a class="js-nav" href="#media"    data-target="media">MEDIA</a>
+        <a class="js-nav" href="#contact"  data-target="contact">CONTACT</a>
+      </nav>
+
+      <div class="LipaHead__actions">
+        <!-- TODO: set real links -->
+        <a class="LipaHead__iconBtn" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </a>
+
+        <a class="LipaHead__iconBtn" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17.1 5.6 12 5.6 12 5.6s-5.1 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 3 12a31 31 0 0 0 .1 3.8 3 3 0 0 0 2.1 2.1c1.8.5 6.8.5 6.8.5s5.1 0 6.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 21 12a31 31 0 0 0 0-3.8Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 15.2V8.8L16 12l-6 3.2Z" fill="currentColor"/>
+          </svg>
+        </a>
+
+        <!-- language switch -->
+        <div class="LipaHead__lang" aria-label="Language switch">
+          <a class="is-active" href="../en/index.html" aria-label="English">EN</a>
+          <a href="../de/index.html" aria-label="Deutsch">DE</a>
+        </div>
+
+        <button class="LipaHead__burger" type="button" aria-label="Open menu" aria-controls="LipaMobileMenu" aria-expanded="false">
+          <i></i><i></i><i></i>
+        </button>
+      </div>
+    </div>
+
+    <nav id="LipaMobileMenu" class="LipaMobile" aria-label="Mobile navigation">
+      <ul class="LipaMobile__list">
+        <li><a class="js-nav" href="#about" data-target="about">ABOUT <small>#</small></a></li>
+        <li><a class="js-nav" href="#frigo" data-target="frigo">FRIGO <small>#</small></a></li>
+        <li><a class="js-nav" href="#projects" data-target="projects">PROJECTS <small>#</small></a></li>
+        <li><a class="js-nav" href="#live" data-target="live">LIVE <small>#</small></a></li>
+        <li><a class="js-nav" href="#media" data-target="media">MEDIA <small>#</small></a></li>
+        <li><a class="js-nav" href="#contact" data-target="contact">CONTACT <small>#</small></a></li>
+      </ul>
+
+      <div class="LipaMobile__bottom">
+        <div class="LipaMobile__social" aria-label="Social media">
+          <a class="LipaHead__iconBtn" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a class="LipaHead__iconBtn" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17.1 5.6 12 5.6 12 5.6s-5.1 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 3 12a31 31 0 0 0 .1 3.8 3 3 0 0 0 2.1 2.1c1.8.5 6.8.5 6.8.5s5.1 0 6.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 21 12a31 31 0 0 0 0-3.8Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M10 15.2V8.8L16 12l-6 3.2Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="LipaHead__lang" aria-label="Language switch">
+          <a class="is-active" href="../en/index.html">EN</a>
+          <a href="../de/index.html">DE</a>
+        </div>
+      </div>
+    </nav>
+
+    <script>
+      (function(){
+        const burger = document.querySelector(".LipaHead__burger");
+        const panel  = document.getElementById("LipaMobileMenu");
+        const navLinks = Array.from(document.querySelectorAll(".js-nav"));
+        const sections = ["about","frigo","projects","live","media","contact"]
+          .map(id => document.getElementById(id))
+          .filter(Boolean);
+
+        function setOpen(isOpen){
+          if(!burger || !panel) return;
+          burger.setAttribute("aria-expanded", String(isOpen));
+          panel.classList.toggle("is-open", isOpen);
+        }
+
+        burger?.addEventListener("click", () => {
+          const isOpen = burger.getAttribute("aria-expanded") === "true";
+          setOpen(!isOpen);
+        });
+
+        function scrollToTarget(id){
+          const el = document.getElementById(id);
+          if(!el) return;
+          const headerH = document.querySelector(".LipaHead__bar")?.offsetHeight || 70;
+          const y = el.getBoundingClientRect().top + window.pageYOffset - (headerH + 16);
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+
+        navLinks.forEach(a => {
+          a.addEventListener("click", (e) => {
+            const t = a.getAttribute("data-target");
+            if(!t) return;
+            e.preventDefault();
+            setOpen(false);
+            scrollToTarget(t);
+          });
+        });
+
+        function setActive(id){
+          const all = Array.from(document.querySelectorAll(".LipaHead__nav a, .LipaMobile__list a"));
+          all.forEach(a => a.classList.toggle("is-active", a.getAttribute("data-target") === id));
+        }
+
+        if("IntersectionObserver" in window && sections.length){
+          const obs = new IntersectionObserver((entries) => {
+            const visible = entries
+              .filter(e => e.isIntersecting)
+              .sort((a,b) => (b.intersectionRatio - a.intersectionRatio))[0];
+            if(visible?.target?.id) setActive(visible.target.id);
+          }, { threshold:[0.15,0.3,0.5,0.7], rootMargin:"-20% 0px -60% 0px" });
+          sections.forEach(s => obs.observe(s));
+        }
+
+        document.addEventListener("keydown", (e) => { if(e.key === "Escape") setOpen(false); });
+        document.addEventListener("click", (e) => {
+          const isOpen = burger?.getAttribute("aria-expanded") === "true";
+          if(!isOpen) return;
+          const head = document.querySelector(".LipaHead__bar");
+          if(head && head.contains(e.target)) return;
+          if(panel && panel.contains(e.target)) return;
+          setOpen(false);
+        });
+      })();
+    </script>
+  </header>
+
+  <!-- =========================================================
+       HERO
+       NOTE about image paths:
+       Best practice is: put photos in ../Resources/Photos/ and rename without spaces/©.
+       If you keep the original names, use URL-encoded paths (as below).
+  ========================================================== -->
+  <main>
+    <section class="Hero" aria-label="Intro">
+      <div class="container">
+        <div class="Hero__grid">
+          <div class="Hero__panel">
+            <div class="Hero__left">
+              <div>
+                <div class="kicker"><span class="dot"></span> New music / Live / Projects</div>
+                <h1>Justin Zitt</h1>
+                <div class="Hero__sub">
+                  Pianist, composer, and musician based in Amsterdam.
+                  <br />
+                  Exploring sound between <b>composition</b>, <b>improvisation</b>, and <b>storytelling</b>.
+                </div>
+
+                <div class="Hero__ctaRow">
+                  <a class="btn btn--primary js-nav" href="#frigo" data-target="frigo">Explore “FRIGO”</a>
+                  <a class="btn js-nav" href="#live" data-target="live">Upcoming concerts</a>
+                  <a class="btn" href="mailto:booking@justinzitt.com">Contact / Booking</a>
+                </div>
+
+                <div class="Hero__meta">
+                  <span class="chip">Amsterdam</span>
+                  <span class="chip">Piano</span>
+                  <span class="chip">Composition</span>
+                  <span class="chip">Improvisation</span>
+                </div>
+              </div>
+
+              <div class="small muted">
+                Tip: add your streaming / presskit links in the MEDIA section below.
+              </div>
+            </div>
+          </div>
+
+          <div class="Hero__panel Hero__right">
+            <!-- HERO IMAGE -->
+            <!-- Option A (recommended): Portrait © Colin Zitt.JPG -->
+            <img
+              class="Hero__img"
+              src="../Resources/Photos/Portrait%20%C2%A9%20Colin%20Zitt.JPG"
+              alt="Justin Zitt portrait"
+              loading="eager"
+              decoding="async"
+            />
+            <div class="Hero__imgOverlay" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ABOUT
+    ========================================================== -->
+    <section id="about" aria-label="About">
+      <div class="container">
+        <div class="SectionHead">
+          <div>
+            <h2>About / Bio</h2>
+            <p>Short bio, longer bio, and a quick “what I do” snapshot. Keep it readable, not a Wikipedia dump.</p>
+          </div>
+        </div>
+
+        <div class="About__grid">
+          <div class="card">
+            <!-- Option: am piano © Lola Gewise.JPG -->
+            <img
+              class="About__photo"
+              src="../Resources/Photos/am%20piano%20%C2%A9%20Lola%20Gewise.JPG"
+              alt="Justin Zitt at the piano"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 10px 0;">A few lines that actually say something</h3>
+            <p class="muted" style="margin:0; line-height:1.65;">
+              <!-- TODO: replace text -->
+              Justin Zitt is a pianist and composer based in Amsterdam.
+              His work moves between intimate acoustic textures and rhythmically driven ensemble music,
+              shaped by improvisation and a love for clear melodic ideas.
+            </p>
+
+            <div class="hr"></div>
+
+            <div class="grid2">
+              <div class="card pad" style="background:rgba(255,255,255,.04); box-shadow:none;">
+                <b>Focus</b>
+                <ul class="list">
+                  <li>Original compositions</li>
+                  <li>Improvised music</li>
+                  <li>Collaborative projects</li>
+                </ul>
+              </div>
+              <div class="card pad" style="background:rgba(255,255,255,.04); box-shadow:none;">
+                <b>Based in</b>
+                <p class="muted" style="margin:8px 0 0 0; line-height:1.6;">
+                  Amsterdam, NL <br/>
+                  Available for concerts, studio work, and commissioned music.
+                </p>
+              </div>
+            </div>
+
+            <div class="Hero__ctaRow" style="margin-top:14px;">
+              <a class="btn js-nav" href="#media" data-target="media">Listen / Watch</a>
+              <a class="btn js-nav" href="#contact" data-target="contact">Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FRIGO
+    ========================================================== -->
+    <section id="frigo" aria-label="FRIGO">
+      <div class="container">
+        <div class="SectionHead">
+          <div>
+            <h2>FRIGO</h2>
+            <p>Album / release hub: story, credits, key tracks, links, visuals. This is the “presskit-lite” section.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="Frigo__hero">
+            <div>
+              <!-- Option: Wand_Fenster ©Nikolai Olshansky.JPG or Werkstatt Atmo ©Jonas Neubauer.png -->
+              <img
+                class="Frigo__img"
+                src="../Resources/Photos/Wand_Fenster%20%C2%AE%20Nikolai%20Olshansky.JPG"
+                alt="Atmospheric image for FRIGO"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div class="pad">
+              <div class="kicker"><span class="dot"></span> Release</div>
+              <h3 style="margin:8px 0 8px 0; font-size:20pt;">FRIGO — Album / EP</h3>
+
+              <p class="muted" style="margin:0; line-height:1.65;">
+                <!-- TODO: replace text -->
+                FRIGO is a collection of pieces shaped by contrast: stillness and motion, clarity and noise,
+                tight composition and open improvisation.
+              </p>
+
+              <div class="hr"></div>
+
+              <div class="grid2">
+                <div>
+                  <b>Credits</b>
+                  <ul class="list">
+                    <li>Justin Zitt — piano / composition</li>
+                    <li><!-- TODO --> Ensemble / guests</li>
+                    <li><!-- TODO --> Recording / mix / master</li>
+                  </ul>
+                </div>
+                <div>
+                  <b>Release info</b>
+                  <ul class="list">
+                    <li><!-- TODO --> Release date</li>
+                    <li><!-- TODO --> Label</li>
+                    <li><!-- TODO --> Formats (digital / vinyl / CD)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="Hero__ctaRow" style="margin-top:14px;">
+                <!-- TODO: replace URLs -->
+                <a class="btn btn--primary" href="#" target="_blank" rel="noopener">Listen (Spotify)</a>
+                <a class="btn" href="#" target="_blank" rel="noopener">Bandcamp</a>
+                <a class="btn" href="#" target="_blank" rel="noopener">Press photos</a>
+              </div>
+
+              <p class="small muted" style="margin:12px 0 0 0;">
+                Pro tip: one strong quote here (press / liner note) instantly makes this section feel “real”.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PROJECTS
+    ========================================================== -->
+    <section id="projects" aria-label="Projects">
+      <div class="container">
+        <div class="SectionHead">
+          <div>
+            <h2>Projects</h2>
+            <p>Other ensembles / collaborations. Keep it short: name + what it is + link.</p>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="ProjCard">
+            <h3>Project Name 1</h3>
+            <p><!-- TODO --> Short description. Genre / role / who’s in it.</p>
+            <div class="hr"></div>
+            <a class="btn" href="#" target="_blank" rel="noopener">Website / Link</a>
+          </div>
+
+          <div class="ProjCard">
+            <h3>Project Name 2</h3>
+            <p><!-- TODO --> Short description. What makes it special.</p>
+            <div class="hr"></div>
+            <a class="btn" href="#" target="_blank" rel="noopener">Listen</a>
+          </div>
+
+          <div class="ProjCard">
+            <h3>Project Name 3</h3>
+            <p><!-- TODO --> Short description. Festivals / notable venues.</p>
+            <div class="hr"></div>
+            <a class="btn" href="#" target="_blank" rel="noopener">Video</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         LIVE
+    ========================================================== -->
+    <section id="live" aria-label="Live">
+      <div class="container">
+        <div class="SectionHead">
+          <div>
+            <h2>Live</h2>
+            <p>Upcoming concerts. Put the next 3–6 here. If empty, add “Currently no dates – get in touch”.</p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card pad">
+            <h3 style="margin:0 0 12px 0;">Upcoming concerts</h3>
+
+            <!-- Example entries (replace) -->
+            <div class="Gig">
+              <div class="Gig__left">
+                <div class="dateBox">
+                  <b>12</b><span>APR</span>
+                </div>
+                <div>
+                  <div class="Gig__title">Venue / Festival Name</div>
+                  <div class="Gig__meta">Amsterdam, NL — 20:00 — <span class="muted">FRIGO Release Show</span></div>
+                </div>
+              </div>
+              <a class="btn" href="#" target="_blank" rel="noopener">Tickets</a>
+            </div>
+
+            <div style="height:10px;"></div>
+
+            <div class="Gig">
+              <div class="Gig__left">
+                <div class="dateBox">
+                  <b>03</b><span>MAY</span>
+                </div>
+                <div>
+                  <div class="Gig__title">Club Name</div>
+                  <div class="Gig__meta">Rotterdam, NL — 21:00</div>
+                </div>
+              </div>
+              <a class="btn" href="#" target="_blank" rel="noopener">Info</a>
+            </div>
+
+            <div style="height:10px;"></div>
+
+            <div class="Gig">
+              <div class="Gig__left">
+                <div class="dateBox">
+                  <b>18</b><span>JUN</span>
+                </div>
+                <div>
+                  <div class="Gig__title">Concert Hall</div>
+                  <div class="Gig__meta">Utrecht, NL — 19:30</div>
+                </div>
+              </div>
+              <a class="btn" href="#" target="_blank" rel="noopener">Tickets</a>
+            </div>
+
+            <p class="small muted" style="margin:14px 0 0 0;">
+              Want a “show more” collapse later? Easy. For now: keep it lean and punchy.
+            </p>
+          </div>
+
+          <div class="card">
+            <!-- Option: IMG_0673.JPG (street / vibe) -->
+            <img
+              class="About__photo"
+              src="../Resources/Photos/IMG_0673.JPG"
+              alt="Live / street mood"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         MEDIA
+    ========================================================== -->
+    <section id="media" aria-label="Media">
+      <div class="container">
+        <div class="SectionHead">
+          <div>
+            <h2>Media</h2>
+            <p>EPK-style: 1–2 videos, 1 streaming embed, downloadable press photos, short tech rider link.</p>
+          </div>
+        </div>
+
+        <div class="mediaGrid">
+          <div class="card pad">
+            <h3 style="margin:0 0 10px 0;">Videos</h3>
+
+            <!-- YouTube embed: replace with your video -->
+            <div class="embed" aria-label="YouTube video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+                title="Justin Zitt – Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <div style="height:12px;"></div>
+
+            <div class="embed" aria-label="YouTube video 2">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/VIDEO_ID_2"
+                title="Justin Zitt – Video 2"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <h3 style="margin:0 0 10px 0;">Listen</h3>
+
+            <!-- Spotify embed (example). Replace with your album/track embed -->
+            <div class="embed" aria-label="Spotify embed" style="padding-top: 152%;">
+              <iframe
+                style="border-radius:18px"
+                src="https://open.spotify.com/embed/album/ALBUM_ID"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                title="Spotify player"
+              ></iframe>
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="grid2">
+              <a class="btn" href="#" target="_blank" rel="noopener">Press Photos (ZIP)</a>
+              <a class="btn" href="#" target="_blank" rel="noopener">Tech Rider / Stage Plot</a>
+            </div>
+
+            <p class="small muted" style="margin:12px 0 0 0;">
+              Keep these links working. Dead EPK links are like a broken sustain pedal: everyone notices.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CONTACT
+    ========================================================== -->
+    <section id="contact" aria-label="Contact">
+      <div class="container">
+        <div class="SectionHead">
+          <div>
+            <h2>Contact</h2>
+            <p>Direct, no form. Booking email + socials. Add management if relevant.</p>
+          </div>
+        </div>
+
+        <div class="Contact__grid">
+          <div class="card pad">
+            <h3 style="margin:0 0 10px 0;">Booking / Inquiries</h3>
+
+            <div class="contactLine">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2"/>
+                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <div>
+                <div><a href="mailto:booking@justinzitt.com">booking@justinzitt.com</a></div>
+                <div class="small">For concerts, collaborations, commissions.</div>
+              </div>
+            </div>
+
+            <div style="height:10px;"></div>
+
+            <div class="contactLine">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <div>
+                <div><b>Amsterdam, NL</b></div>
+                <div class="small">Available for EU / international dates.</div>
+              </div>
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="Hero__ctaRow">
+              <!-- TODO: replace URLs -->
+              <a class="btn btn--primary" href="#" target="_blank" rel="noopener">Instagram</a>
+              <a class="btn" href="#" target="_blank" rel="noopener">YouTube</a>
+              <a class="btn" href="#" target="_blank" rel="noopener">Spotify</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <!-- Option: Portrait_Tür1 … (komprimiert).png -->
+            <img
+              class="About__photo"
+              src="../Resources/Photos/Portrait_Tu%CC%88r1%20%CD%AE%20Nikolai%20Olshansky(komprimiert).png"
+              alt="Justin Zitt portrait"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer aria-label="Footer">
+    <div class="container">
+      <div class="footerRow">
+        <div>© <span id="y"></span> Justin Zitt</div>
+        <div class="small">
+          <a href="../Legal/imprint.html">Imprint</a> ·
+          <a href="../Legal/privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("y").textContent = String(new Date().getFullYear());
+    </script>
+  </footer>
+</body>
+</html>
