@@ -14,12 +14,12 @@
 <footer class="Footbar" role="contentinfo">
   <style>
     .Footbar{
-      margin-top:0;
-      color:#f7efe6;
+      margin:0;
+      color:#f6eee5;
       background:
-        radial-gradient(780px 260px at 8% 0%, rgba(170,112,63,.18), rgba(0,0,0,0) 60%),
-        radial-gradient(620px 240px at 92% 0%, rgba(106,47,134,.14), rgba(0,0,0,0) 58%),
-        linear-gradient(180deg, #251914 0%, #18110e 100%);
+        radial-gradient(700px 220px at 8% 0%, rgba(170,112,63,.15), rgba(0,0,0,0) 58%),
+        radial-gradient(560px 220px at 92% 0%, rgba(106,47,134,.12), rgba(0,0,0,0) 56%),
+        linear-gradient(180deg, #241813 0%, #17100d 100%);
       border-top:1px solid rgba(255,255,255,.08);
       overflow:hidden;
     }
@@ -32,37 +32,37 @@
     .Footbar__wrap{
       width:min(1160px, calc(100% - 32px));
       margin:0 auto;
-      padding:24px 0 14px;
+      padding:20px 0 12px;
     }
 
     .Footbar__top{
       display:grid;
-      grid-template-columns:1.15fr .9fr .95fr;
-      gap:28px;
+      grid-template-columns:1.1fr .95fr .75fr;
+      gap:24px;
       align-items:start;
     }
 
     .Footbar__brand{
-      font-size:clamp(24px, 2.7vw, 34px);
+      margin:0 0 10px 0;
+      font-size:clamp(24px, 2.4vw, 34px);
       line-height:1;
       font-weight:900;
       letter-spacing:-.03em;
       color:#fff8f0;
-      margin:0 0 12px 0;
     }
 
     .Footbar__copy{
-      margin:0 0 14px 0;
-      font-size:10.3pt;
+      margin:0 0 12px 0;
+      font-size:10.2pt;
       font-weight:700;
-      color:rgba(247,239,230,.72);
+      color:rgba(246,238,229,.74);
     }
 
     .Footbar__contact{
       display:flex;
       flex-direction:column;
-      gap:10px;
-      margin-bottom:16px;
+      gap:8px;
+      margin:0 0 14px 0;
     }
 
     .Footbar__contactLink{
@@ -95,8 +95,8 @@
     }
 
     .Footbar__socialBtn{
-      width:40px;
-      height:40px;
+      width:38px;
+      height:38px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -120,8 +120,8 @@
     }
 
     .Footbar__title{
-      margin:2px 0 12px 0;
-      font-size:9.8pt;
+      margin:2px 0 10px 0;
+      font-size:9.6pt;
       font-weight:900;
       letter-spacing:.16em;
       text-transform:uppercase;
@@ -137,8 +137,14 @@
       gap:8px 18px;
     }
 
+    .Footbar__list li{
+      margin:0;
+      padding:0;
+    }
+
     .Footbar__list a{
-      color:rgba(247,239,230,.84);
+      display:inline-block;
+      color:rgba(246,238,229,.84);
       font-weight:700;
       transition:color .16s ease, transform .16s ease;
     }
@@ -150,15 +156,15 @@
 
     .Footbar__infoText{
       margin:0;
-      color:rgba(247,239,230,.74);
-      line-height:1.68;
-      font-size:10.6pt;
-      max-width:34ch;
+      color:rgba(246,238,229,.74);
+      line-height:1.62;
+      font-size:10.4pt;
+      max-width:30ch;
     }
 
     .Footbar__bottom{
-      margin-top:18px;
-      padding-top:12px;
+      margin-top:16px;
+      padding-top:10px;
       border-top:1px solid rgba(255,255,255,.08);
       display:flex;
       align-items:center;
@@ -172,8 +178,8 @@
       flex-wrap:wrap;
       align-items:center;
       gap:10px;
-      color:rgba(247,239,230,.72);
-      font-size:10.2pt;
+      color:rgba(246,238,229,.72);
+      font-size:10.1pt;
     }
 
     .FootbarLegal a{
@@ -189,7 +195,7 @@
     }
 
     .Footbar__powered{
-      font-size:10.2pt;
+      font-size:10.1pt;
       font-weight:700;
       color:#d8b892;
       text-align:right;
@@ -206,21 +212,26 @@
     @media (max-width: 980px){
       .Footbar__top{
         grid-template-columns:1fr 1fr;
+        gap:22px;
       }
 
       .Footbar__col--info{
         grid-column:1 / -1;
       }
+
+      .Footbar__infoText{
+        max-width:none;
+      }
     }
 
     @media (max-width: 720px){
       .Footbar__wrap{
-        padding:20px 0 12px;
+        padding:18px 0 12px;
       }
 
       .Footbar__top{
         grid-template-columns:1fr;
-        gap:20px;
+        gap:18px;
       }
 
       .Footbar__list{
@@ -228,8 +239,9 @@
       }
 
       .Footbar__bottom{
-        align-items:flex-start;
         flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
       }
 
       .Footbar__powered{
@@ -248,7 +260,7 @@
     <div class="Footbar__top">
 
       <section class="Footbar__col Footbar__col--brand" aria-label="Brand">
-        <div class="Footbar__brand">Justin Zitt</div>
+        <h2 class="Footbar__brand">Justin Zitt</h2>
         <p class="Footbar__copy">© <span id="YearSlot"></span></p>
 
         <div class="Footbar__contact">
@@ -305,7 +317,7 @@
       <section class="Footbar__col Footbar__col--info" aria-label="Information">
         <div class="Footbar__title">Info</div>
         <p class="Footbar__infoText">
-          Quick access to all main onepager sections and the online shop.
+          Quick access to all main sections, music platforms, contact details, and the online shop.
         </p>
       </section>
 
