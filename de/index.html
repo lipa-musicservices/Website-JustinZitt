@@ -22,13 +22,13 @@
   <title>Justin Zitt – Pianist & Composer</title>
   <meta
     name="description"
-    content="Justin Zitt is a pianist, composer, and musician based in Amsterdam. Discover FRIGO, current projects, live dates, media, and contact information."
+    content="Justin Zitt is a pianist and composer based in Amsterdam. Discover FRIGO, selected projects, videos, streaming links, concert dates, and contact information."
   />
 
   <meta property="og:title" content="Justin Zitt – Pianist & Composer" />
   <meta
     property="og:description"
-    content="Pianist, composer, and musician based in Amsterdam. FRIGO, projects, live dates, media, and contact."
+    content="Pianist and composer based in Amsterdam. FRIGO, projects, media, live dates, and contact."
   />
 
   <style>
@@ -52,8 +52,7 @@
 
       --radius:20px;
       --container:1160px;
-      --sectionPad:100px;
-      --head-h:76px;
+      --sectionPad:96px;
     }
 
     *{ box-sizing:border-box; }
@@ -81,258 +80,11 @@
       margin:0 auto;
     }
 
-    /* =========================================================
-       HEADBAR
-       ========================================================= */
-    .HeadbarWrap{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      padding:12px 12px 0;
-      background:linear-gradient(to bottom, rgba(251,247,240,.9), rgba(251,247,240,0));
-      backdrop-filter:saturate(1.05);
-      -webkit-backdrop-filter:saturate(1.05);
-    }
-
-    .Headbar{
-      max-width:var(--container);
-      height:var(--head-h);
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:0 18px;
-      background:rgba(255,253,248,.82);
-      border:1px solid rgba(58,45,30,.10);
-      border-radius:22px;
-      box-shadow:var(--shadow);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .Headbar__brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:230px;
-    }
-
-    .Headbar__mark{
-      width:38px;
-      height:38px;
-      border-radius:13px;
-      background:
-        radial-gradient(120% 120% at 25% 20%, rgba(200,171,132,.9), rgba(200,171,132,.18) 45%, rgba(0,0,0,0) 70%),
-        linear-gradient(180deg, #fbf6ed, #eee3d2);
-      border:1px solid rgba(143,107,70,.18);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
-      position:relative;
-      flex:0 0 auto;
-    }
-
-    .Headbar__mark::after{
-      content:"";
-      position:absolute;
-      inset:9px;
-      border:1px solid rgba(143,107,70,.28);
-      border-radius:10px;
-    }
-
-    .Headbar__title{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-      line-height:1.05;
-    }
-
-    .Headbar__name{
-      font-size:12.5pt;
-      font-weight:900;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-
-    .Headbar__tag{
-      font-size:10.2pt;
-      color:var(--text-soft);
-      font-weight:600;
-    }
-
-    .Headbar__nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:4px;
-      flex:1;
-    }
-
-    .Headbar__nav a{
-      position:relative;
-      display:inline-flex;
-      align-items:center;
-      padding:10px 11px;
-      border-radius:12px;
-      color:var(--text-soft);
-      font-size:10.5pt;
-      font-weight:800;
-      letter-spacing:.08em;
-      transition:background .16s ease, color .16s ease, transform .16s ease;
-    }
-
-    .Headbar__nav a:hover{
-      background:rgba(143,107,70,.08);
-      color:var(--text);
-      transform:translateY(-1px);
-    }
-
-    .Headbar__nav a.is-active{
-      color:var(--text);
-      background:rgba(143,107,70,.10);
-    }
-
-    .Headbar__nav a.is-active::after{
-      content:"";
-      position:absolute;
-      left:11px;
-      right:11px;
-      bottom:7px;
-      height:2px;
-      border-radius:2px;
-      background:linear-gradient(90deg, var(--accent), var(--accent-2));
-    }
-
-    .Headbar__actions{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      justify-content:flex-end;
-      min-width:220px;
-    }
-
-    .IconBtn{
-      width:40px;
-      height:40px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:12px;
-      border:1px solid rgba(58,45,30,.12);
-      background:rgba(255,255,255,.46);
-      transition:background .16s ease, transform .16s ease, border-color .16s ease;
-    }
-
-    .IconBtn:hover{
-      background:#fff;
-      transform:translateY(-1px);
-      border-color:rgba(58,45,30,.18);
-    }
-
-    .Lang{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:6px 8px;
-      border-radius:999px;
-      background:rgba(255,255,255,.55);
-      border:1px solid rgba(58,45,30,.10);
-    }
-
-    .Lang a{
-      padding:6px 9px;
-      border-radius:999px;
-      font-size:9.8pt;
-      font-weight:900;
-      letter-spacing:.08em;
-      color:var(--text-soft);
-      transition:background .16s ease, color .16s ease;
-    }
-
-    .Lang a:hover{
-      color:var(--text);
-    }
-
-    .Lang a.is-active{
-      background:rgba(143,107,70,.12);
-      color:var(--text);
-    }
-
-    .Burger{
-      width:44px;
-      height:44px;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      gap:5px;
-      flex-direction:column;
-      border:none;
-      border-radius:14px;
-      background:rgba(255,255,255,.46);
-      border:1px solid rgba(58,45,30,.12);
-      cursor:pointer;
-    }
-
-    .Burger span{
-      display:block;
-      width:18px;
-      height:2px;
-      border-radius:2px;
-      background:var(--text);
-      transition:transform .18s ease, opacity .18s ease;
-    }
-
-    .Burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-    .Burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
-    .Burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-
-    .MobileMenu{
-      max-width:var(--container);
-      margin:10px auto 0;
-      display:none;
-      background:rgba(255,253,248,.95);
-      border:1px solid rgba(58,45,30,.12);
-      border-radius:22px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-
-    .MobileMenu.is-open{ display:block; }
-
-    .MobileMenu__list{
-      list-style:none;
-      margin:0;
-      padding:10px;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-
-    .MobileMenu__list a{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:13px 14px;
-      border-radius:14px;
-      color:var(--text);
-      background:rgba(143,107,70,.05);
-      border:1px solid rgba(58,45,30,.08);
-      font-weight:800;
-      letter-spacing:.08em;
-    }
-
-    .MobileMenu__bottom{
-      padding:10px 12px 12px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      border-top:1px solid rgba(58,45,30,.08);
-      background:rgba(143,107,70,.04);
-    }
-
-    .MobileMenu__social{
-      display:flex;
-      gap:10px;
+    /* Slots for partials */
+    #HeadbarSlot,
+    #FootbarSlot,
+    #CookieSlot{
+      width:100%;
     }
 
     /* =========================================================
@@ -344,7 +96,7 @@
       display:flex;
       align-items:flex-end;
       padding:0;
-      margin-top:calc(-1 * (12px + var(--head-h)));
+      margin-top:-88px;
       overflow:hidden;
     }
 
@@ -392,7 +144,7 @@
     }
 
     .Hero__sub{
-      max-width:680px;
+      max-width:700px;
       font-size:clamp(13pt, 2vw, 15pt);
       line-height:1.65;
       color:rgba(255,250,243,.90);
@@ -472,7 +224,7 @@
 
     .SectionIntro{
       margin-bottom:28px;
-      max-width:780px;
+      max-width:760px;
     }
 
     .SectionKicker{
@@ -529,32 +281,6 @@
       display:block;
       border-radius:24px;
       box-shadow:var(--shadow-soft);
-    }
-
-    .metaList{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin-top:22px;
-    }
-
-    .metaItem{
-      padding:16px 18px;
-      border-radius:18px;
-      background:rgba(255,255,255,.52);
-      border:1px solid rgba(58,45,30,.08);
-    }
-
-    .metaItem strong{
-      display:block;
-      margin-bottom:6px;
-      font-size:11pt;
-    }
-
-    .metaItem span{
-      color:var(--text-soft);
-      line-height:1.6;
-      font-size:10.8pt;
     }
 
     /* =========================================================
@@ -638,7 +364,7 @@
     }
 
     .Project p{
-      margin:0 0 16px;
+      margin:0;
       color:var(--text-soft);
       line-height:1.68;
     }
@@ -775,6 +501,14 @@
       border-radius:22px;
     }
 
+    .MediaLink__icon{
+      width:22px;
+      height:22px;
+      flex:0 0 auto;
+      display:block;
+      margin-top:1px;
+    }
+
     .MediaLink__text strong{
       display:block;
       margin-bottom:5px;
@@ -825,31 +559,17 @@
       line-height:1.45;
     }
 
-    /* =========================================================
-       FOOTER
-       ========================================================= */
-    .Footer{
-      padding:34px 0 54px;
-      color:var(--text-soft);
-      border-top:1px solid rgba(58,45,30,.08);
-      margin-top:16px;
-    }
-
-    .Footer__row{
+    .ContactSocials{
       display:flex;
-      justify-content:space-between;
-      gap:16px;
-      align-items:center;
       flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
     }
 
     /* =========================================================
        RESPONSIVE
        ========================================================= */
     @media (max-width: 1080px){
-      .Headbar__nav{ display:none; }
-      .Burger{ display:flex; }
-
       .split,
       .Frigo__layout,
       .Live__grid,
@@ -874,29 +594,11 @@
     @media (max-width: 720px){
       :root{
         --sectionPad:74px;
-        --head-h:68px;
-      }
-
-      .Headbar{
-        padding:0 14px;
-      }
-
-      .Headbar__tag,
-      .Lang{
-        display:none;
-      }
-
-      .Headbar__brand{
-        min-width:auto;
-      }
-
-      .Headbar__actions{
-        min-width:auto;
       }
 
       .Hero{
         min-height:88vh;
-        margin-top:calc(-1 * (12px + var(--head-h)));
+        margin-top:-80px;
       }
 
       .Hero__content{
@@ -915,7 +617,6 @@
         font-size:clamp(36px, 12vw, 54px);
       }
 
-      .metaList,
       .Frigo__facts{
         grid-template-columns:1fr;
       }
@@ -928,86 +629,7 @@
 </head>
 
 <body>
-  <header class="HeadbarWrap" role="banner">
-    <div class="Headbar">
-      <a class="Headbar__brand" href="#top" aria-label="Back to top">
-        <span class="Headbar__mark" aria-hidden="true"></span>
-        <span class="Headbar__title">
-          <span class="Headbar__name">Justin Zitt</span>
-          <span class="Headbar__tag">Pianist • Composer</span>
-        </span>
-      </a>
-
-      <nav class="Headbar__nav" aria-label="Main navigation">
-        <a class="js-nav" href="#about" data-target="about">ABOUT</a>
-        <a class="js-nav" href="#frigo" data-target="frigo">FRIGO</a>
-        <a class="js-nav" href="#projects" data-target="projects">PROJECTS</a>
-        <a class="js-nav" href="#live" data-target="live">LIVE</a>
-        <a class="js-nav" href="#media" data-target="media">MEDIA</a>
-        <a class="js-nav" href="#contact" data-target="contact">CONTACT</a>
-      </nav>
-
-      <div class="Headbar__actions">
-        <a class="IconBtn" href="#" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/>
-            <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
-            <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-        </a>
-
-        <a class="IconBtn" href="#" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17.1 5.6 12 5.6 12 5.6s-5.1 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 3 12a31 31 0 0 0 .1 3.8 3 3 0 0 0 2.1 2.1c1.8.5 6.8.5 6.8.5s5.1 0 6.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 21 12a31 31 0 0 0 0-3.8Z" stroke="currentColor" stroke-width="2"/>
-            <path d="M10 15.2V8.8L16 12l-6 3.2Z" fill="currentColor"/>
-          </svg>
-        </a>
-
-        <div class="Lang" aria-label="Language switch">
-          <a class="is-active" href="../en/index.html">EN</a>
-          <a href="../de/index.html">DE</a>
-        </div>
-
-        <button class="Burger" type="button" aria-label="Open menu" aria-controls="MobileMenu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-
-    <nav id="MobileMenu" class="MobileMenu" aria-label="Mobile navigation">
-      <ul class="MobileMenu__list">
-        <li><a class="js-nav" href="#about" data-target="about">ABOUT <small>#</small></a></li>
-        <li><a class="js-nav" href="#frigo" data-target="frigo">FRIGO <small>#</small></a></li>
-        <li><a class="js-nav" href="#projects" data-target="projects">PROJECTS <small>#</small></a></li>
-        <li><a class="js-nav" href="#live" data-target="live">LIVE <small>#</small></a></li>
-        <li><a class="js-nav" href="#media" data-target="media">MEDIA <small>#</small></a></li>
-        <li><a class="js-nav" href="#contact" data-target="contact">CONTACT <small>#</small></a></li>
-      </ul>
-
-      <div class="MobileMenu__bottom">
-        <div class="MobileMenu__social">
-          <a class="IconBtn" href="#" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </a>
-          <a class="IconBtn" href="#" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17.1 5.6 12 5.6 12 5.6s-5.1 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 3 12a31 31 0 0 0 .1 3.8 3 3 0 0 0 2.1 2.1c1.8.5 6.8.5 6.8.5s5.1 0 6.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 21 12a31 31 0 0 0 0-3.8Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M10 15.2V8.8L16 12l-6 3.2Z" fill="currentColor"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="Lang">
-          <a class="is-active" href="../en/index.html">EN</a>
-          <a href="../de/index.html">DE</a>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <div id="HeadbarSlot"></div>
 
   <main>
     <section class="Hero" aria-label="Intro">
@@ -1027,14 +649,14 @@
             <h1>Justin Zitt</h1>
 
             <div class="Hero__sub">
-              Pianist, composer, and musician based in Amsterdam. His work moves between carefully shaped composition,
-              improvisational openness, and a clear sense of atmosphere — intimate in detail, direct in expression,
-              and always centered around sound that feels alive.
+              Pianist and composer based in Amsterdam. His music combines lyrical clarity, rhythmic precision,
+              and improvisational openness — shaped by a strong sense of atmosphere and a deep commitment to sound
+              that remains direct, alive, and emotionally exact.
             </div>
 
             <div class="Hero__ctaRow">
-              <a class="btn btn--light js-nav" href="#frigo" data-target="frigo">Explore FRIGO</a>
-              <a class="btn btn--ghost js-nav" href="#live" data-target="live">Upcoming concerts</a>
+              <a class="btn btn--light" href="#frigo">Explore FRIGO</a>
+              <a class="btn btn--ghost" href="#media">Watch videos</a>
             </div>
           </div>
         </div>
@@ -1045,12 +667,13 @@
       <div class="container">
         <div class="SectionIntro">
           <p class="SectionKicker">About</p>
-          <h2 class="SectionTitle">A musical language built on clarity, atmosphere, and spontaneity.</h2>
+          <h2 class="SectionTitle">Clear writing, open form, and a sound that stays close to the listener.</h2>
           <p class="SectionText">
-            Justin Zitt is a pianist and composer based in Amsterdam. His music brings together lyrical writing,
-            rhythmic precision, and an openness to the unpredictable energy of live performance. Whether working in
-            solo settings, collaborative ensembles, or project-based formats, he is drawn to music that communicates
-            directly while leaving space for nuance, texture, and movement.
+            Justin Zitt is a German jazz pianist and composer currently based in Amsterdam. After early support through
+            the Jazz Juniors program in Baden-Württemberg and preparatory studies with Hubert Nuss in Stuttgart, he
+            completed his Bachelor in Jazz Piano in Mannheim, where he studied with Rainer Böhm and Lorenz Kellhuber.
+            He is now continuing his artistic path in an international environment, working between composition,
+            improvisation, and collaborative performance.
           </p>
         </div>
 
@@ -1067,39 +690,21 @@
 
           <div class="softBlock">
             <p class="SectionText" style="margin-bottom:18px;">
-              As a performer, Justin is interested in the tension between structure and freedom: composed material that
-              remains open enough to breathe, shift, and evolve in the moment. As a composer, he focuses on strong,
-              memorable musical ideas, patient development, and a sonic world that balances intimacy with depth.
+              His playing is marked by clarity, patience, and a strong sense of narrative. Rather than choosing between
+              structure and freedom, Justin works at the point where both can support each other: composed material
+              remains flexible, and improvisation becomes part of the form rather than decoration around it.
             </p>
 
-            <p class="SectionText" style="margin-bottom:0;">
-              The result is a body of work shaped by attention to detail, sensitivity in ensemble playing, and a
-              commitment to music that feels honest rather than decorative. That is the whole point, really.
+            <p class="SectionText" style="margin-bottom:18px;">
+              In recent years, he has developed his profile through ensemble work, original projects, and an expanding
+              network of collaborations. His artistic focus lies in music that is refined without becoming distant,
+              detailed without becoming academic, and open enough to let performance shape the final result.
             </p>
 
-            <div class="metaList">
-              <div class="metaItem">
-                <strong>Focus</strong>
-                <span>Original compositions, improvised music, and long-term artistic collaboration.</span>
-              </div>
-              <div class="metaItem">
-                <strong>Based in</strong>
-                <span>Amsterdam, NL — active in concert work, recording, and interdisciplinary projects.</span>
-              </div>
-              <div class="metaItem">
-                <strong>Approach</strong>
-                <span>Clear musical ideas, openness in performance, and an ear for space, timing, and color.</span>
-              </div>
-              <div class="metaItem">
-                <strong>Work</strong>
-                <span>Live performance, composition, ensemble playing, and project-driven productions.</span>
-              </div>
-            </div>
-
-            <div class="Hero__ctaRow" style="margin-top:24px;">
-              <a class="btn btn--soft js-nav" href="#media" data-target="media">Watch videos</a>
-              <a class="btn btn--soft js-nav" href="#contact" data-target="contact">Get in touch</a>
-            </div>
+            <p class="SectionText" style="margin:0;">
+              With <em>FRIGO</em>, Justin presents a debut statement that reflects exactly that approach: thoughtful,
+              spacious, and grounded in a contemporary piano trio language with its own voice.
+            </p>
           </div>
         </div>
       </div>
@@ -1112,35 +717,35 @@
             <p class="SectionKicker">Release</p>
             <h2 class="Frigo__title">FRIGO</h2>
             <p class="Frigo__lead">
-              FRIGO is a release shaped by contrast: stillness and momentum, precision and openness, closeness and
-              distance. The music unfolds through carefully formed compositions while staying connected to the energy
-              of performance itself. Rather than treating composition and improvisation as opposites, FRIGO lets both
-              coexist — structure becomes a frame for movement, and spontaneity becomes part of the form.
+              <em>FRIGO</em> is Justin Zitt’s debut album and a focused piano trio release with Julian Grüneberg and
+              Julius Steyer. The record balances compositional precision with real openness in performance: melodies
+              remain clear, rhythms breathe, and the trio creates space rather than filling every corner. The result is
+              music that feels contemporary without chasing fashion — thoughtful, agile, and quietly intense.
             </p>
 
             <div class="Frigo__facts">
               <div class="Frigo__fact">
-                <strong>Concept</strong>
-                <span>A body of music built around atmosphere, clarity, and the tension between fixed material and live development.</span>
+                <strong>Release</strong>
+                <span>Debut album, released via Unit Records in 2025.</span>
               </div>
               <div class="Frigo__fact">
-                <strong>Writing</strong>
-                <span>Compositions that stay melodic and focused while allowing space for shifting colors and unexpected turns.</span>
+                <strong>Line-up</strong>
+                <span>Justin Zitt — piano, Julian Grüneberg — bass, Julius Steyer — drums.</span>
               </div>
               <div class="Frigo__fact">
-                <strong>Sound</strong>
-                <span>Acoustic intimacy, cinematic pacing, and a strong sense of detail in timing, texture, and ensemble balance.</span>
+                <strong>Character</strong>
+                <span>Modern piano trio music with lyrical focus, rhythmic detail, and spacious interplay.</span>
               </div>
               <div class="Frigo__fact">
-                <strong>Live Context</strong>
-                <span>Designed not only as a recorded statement, but also as material that can grow and change on stage.</span>
+                <strong>Listen</strong>
+                <span>Available on Spotify, Apple Music, Amazon, and other streaming platforms.</span>
               </div>
             </div>
 
             <div class="Hero__ctaRow" style="margin-top:24px;">
-              <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Listen on Spotify</a>
-              <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Bandcamp</a>
-              <a class="btn btn--soft js-nav" href="#media" data-target="media">Media</a>
+              <a class="btn btn--soft" href="https://open.spotify.com/intl-de/artist/5CxE6rCLGzcCUn0DxMB2as" target="_blank" rel="noopener">Spotify</a>
+              <a class="btn btn--soft" href="https://music.apple.com/ch/artist/justin-zitt/1485715992" target="_blank" rel="noopener">Apple Music</a>
+              <a class="btn btn--soft" href="https://www.amazon.de/FRIGO-Justin-Zitt/dp/B0FNY5CV5Z" target="_blank" rel="noopener">Amazon</a>
             </div>
           </div>
 
@@ -1161,40 +766,36 @@
       <div class="container">
         <div class="SectionIntro">
           <p class="SectionKicker">Projects</p>
-          <h2 class="SectionTitle">Different formats, shared focus.</h2>
+          <h2 class="SectionTitle">Writing, trio work, and collaboration.</h2>
           <p class="SectionText">
-            Alongside his own work, Justin appears in a range of collaborative settings. What connects them is a shared
-            interest in sound that is clear in intention, open in process, and strong enough to carry a room without
-            forcing itself into one.
+            Justin’s work moves across original trio repertoire, collaborative ensemble settings, and project-based
+            formats in which composition and improvisation meet on equal terms. The common thread is always the same:
+            musical clarity, openness in performance, and a sound that is precise without becoming rigid.
           </p>
         </div>
 
         <div class="Projects__grid">
           <article class="Project">
-            <h3>Original Music Projects</h3>
+            <h3>Piano Trio</h3>
             <p>
-              Ensemble-based work centered around Justin’s compositions, where written material and improvisation remain
-              in constant dialogue. These formats are often the clearest extension of his artistic voice.
+              A central format in Justin’s work, bringing together composition, interaction, and dynamic elasticity in
+              a concise acoustic setting.
             </p>
-            <a class="btn btn--soft js-nav" href="#frigo" data-target="frigo">Explore FRIGO</a>
           </article>
 
           <article class="Project">
-            <h3>Collaborative Ensembles</h3>
+            <h3>Original Composition</h3>
             <p>
-              Ongoing musical collaborations with other artists, built on listening, shared authorship, and a flexible
-              approach to form. Less ego, more ears. A refreshingly underrated method.
+              Music shaped by strong melodic material, structural awareness, and a preference for depth over effect.
             </p>
-            <a class="btn btn--soft js-nav" href="#contact" data-target="contact">Inquiries</a>
           </article>
 
           <article class="Project">
-            <h3>Live & Project-Based Work</h3>
+            <h3>Collaborative Work</h3>
             <p>
-              Performances and productions that move across concert settings, recordings, and interdisciplinary contexts,
-              always with the same emphasis on detail, atmosphere, and musical presence.
+              Ensemble projects built on listening, shared responsibility, and the belief that the best music rarely
+              comes from someone trying too hard to be impressive.
             </p>
-            <a class="btn btn--soft js-nav" href="#live" data-target="live">Live Dates</a>
           </article>
         </div>
       </div>
@@ -1206,11 +807,10 @@
           <div>
             <div class="SectionIntro" style="margin-bottom:22px;">
               <p class="SectionKicker">Live</p>
-              <h2 class="SectionTitle">Upcoming concerts.</h2>
+              <h2 class="SectionTitle">Concerts.</h2>
               <p class="SectionText">
-                Current performances and selected upcoming dates. Concert work remains a central part of Justin’s
-                practice — not as promotion material dressed up as life, but as the place where the music actually
-                becomes itself.
+                Selected upcoming dates and concert appearances. The first five are shown directly, the rest can be
+                opened below. Nice and clean instead of an endless wall of dates nobody reads.
               </p>
             </div>
 
@@ -1218,15 +818,15 @@
               <div class="Gig">
                 <div class="Gig__left">
                   <div class="DateBox">
-                    <b>12</b>
+                    <b>18</b>
                     <span>APR</span>
                   </div>
                   <div>
-                    <p class="Gig__title">FRIGO Release Concert</p>
-                    <p class="Gig__meta">Amsterdam, NL — 20:00 — music from the release presented live in an extended concert setting.</p>
+                    <p class="Gig__title">Bimhuis Sessions</p>
+                    <p class="Gig__meta">Amsterdam, NL — 20:30 — trio set featuring music from <em>FRIGO</em> and selected new material.</p>
                   </div>
                 </div>
-                <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Tickets</a>
+                <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Info</a>
               </div>
 
               <div class="Gig">
@@ -1236,22 +836,8 @@
                     <span>MAY</span>
                   </div>
                   <div>
-                    <p class="Gig__title">Club Performance</p>
-                    <p class="Gig__meta">Rotterdam, NL — 21:00 — collaborative set featuring original music and improvised material.</p>
-                  </div>
-                </div>
-                <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Info</a>
-              </div>
-
-              <div class="Gig">
-                <div class="Gig__left">
-                  <div class="DateBox">
-                    <b>18</b>
-                    <span>JUN</span>
-                  </div>
-                  <div>
-                    <p class="Gig__title">Concert Hall Appearance</p>
-                    <p class="Gig__meta">Utrecht, NL — 19:30 — selected works in a focused concert program.</p>
+                    <p class="Gig__title">Loft Concert</p>
+                    <p class="Gig__meta">Rotterdam, NL — 21:00 — intimate concert evening with original trio repertoire.</p>
                   </div>
                 </div>
                 <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Tickets</a>
@@ -1260,12 +846,40 @@
               <div class="Gig">
                 <div class="Gig__left">
                   <div class="DateBox">
-                    <b>29</b>
+                    <b>17</b>
+                    <span>MAY</span>
+                  </div>
+                  <div>
+                    <p class="Gig__title">JazzHall Focus Night</p>
+                    <p class="Gig__meta">Hamburg, DE — 19:30 — selected compositions in a focused concert program.</p>
+                  </div>
+                </div>
+                <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Info</a>
+              </div>
+
+              <div class="Gig">
+                <div class="Gig__left">
+                  <div class="DateBox">
+                    <b>08</b>
                     <span>JUN</span>
                   </div>
                   <div>
-                    <p class="Gig__title">Festival Showcase</p>
-                    <p class="Gig__meta">The Hague, NL — 17:00 — afternoon performance with a compact project format.</p>
+                    <p class="Gig__title">Summer Stage</p>
+                    <p class="Gig__meta">Utrecht, NL — 18:00 — outdoor performance with trio arrangements and improvised interludes.</p>
+                  </div>
+                </div>
+                <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Tickets</a>
+              </div>
+
+              <div class="Gig">
+                <div class="Gig__left">
+                  <div class="DateBox">
+                    <b>22</b>
+                    <span>JUN</span>
+                  </div>
+                  <div>
+                    <p class="Gig__title">Late Set at Bird</p>
+                    <p class="Gig__meta">Rotterdam, NL — 22:00 — late-night set with spacious trio pieces and newer material.</p>
                   </div>
                 </div>
                 <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Info</a>
@@ -1278,8 +892,8 @@
                     <span>JUL</span>
                   </div>
                   <div>
-                    <p class="Gig__title">Summer Concert</p>
-                    <p class="Gig__meta">Amsterdam, NL — 20:30 — evening set with original repertoire and expanded ensemble textures.</p>
+                    <p class="Gig__title">Festival Appearance</p>
+                    <p class="Gig__meta">The Hague, NL — 17:30 — afternoon festival concert with a condensed live set.</p>
                   </div>
                 </div>
                 <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Tickets</a>
@@ -1288,29 +902,15 @@
               <div class="Gig">
                 <div class="Gig__left">
                   <div class="DateBox">
-                    <b>22</b>
+                    <b>29</b>
                     <span>AUG</span>
                   </div>
                   <div>
-                    <p class="Gig__title">Late Summer Session</p>
-                    <p class="Gig__meta">Utrecht, NL — 19:00 — intimate concert program with a focus on newer material.</p>
+                    <p class="Gig__title">Canal House Concert</p>
+                    <p class="Gig__meta">Amsterdam, NL — 20:00 — close-up concert setting with original music and open trio passages.</p>
                   </div>
                 </div>
                 <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Info</a>
-              </div>
-
-              <div class="Gig">
-                <div class="Gig__left">
-                  <div class="DateBox">
-                    <b>14</b>
-                    <span>SEP</span>
-                  </div>
-                  <div>
-                    <p class="Gig__title">Autumn Series</p>
-                    <p class="Gig__meta">Rotterdam, NL — 20:00 — concert evening featuring selected works and improvisational interludes.</p>
-                  </div>
-                </div>
-                <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Tickets</a>
               </div>
             </div>
 
@@ -1322,8 +922,8 @@
           <div>
             <img
               class="imageMedium"
-              src="../Resources/Content/Justin2.png"
-              alt="Justin Zitt walking outdoors"
+              src="../Resources/Content/Justin3.JPG"
+              alt="Justin Zitt portrait outdoors"
               loading="lazy"
               decoding="async"
             />
@@ -1336,21 +936,21 @@
       <div class="container">
         <div class="SectionIntro">
           <p class="SectionKicker">Media</p>
-          <h2 class="SectionTitle">Watch, download, and take a closer look.</h2>
+          <h2 class="SectionTitle">Watch, stream, and follow the music.</h2>
           <p class="SectionText">
-            A compact media section with performance video and practical material for promoters, venues, and press.
-            Useful beats bloated every single time.
+            A compact media section with selected video material and direct platform links. Clean, useful, and without
+            the usual digital clutter circus.
           </p>
         </div>
 
         <div class="Media__grid">
           <div class="embedCard">
-            <h3>Videos</h3>
+            <h3>Selected Videos</h3>
 
             <div class="embed">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
-                title="Justin Zitt video"
+                src="https://www.youtube-nocookie.com/embed/05cZbwuwqLY"
+                title="FRIGO plays Toleranzangst"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
@@ -1360,8 +960,8 @@
 
             <div class="embed">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/VIDEO_ID_2"
-                title="Justin Zitt video 2"
+                src="https://www.youtube-nocookie.com/embed/N0PAzdU03r4"
+                title="Penuel - Justin Zitt's FRIGO"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
@@ -1369,48 +969,43 @@
           </div>
 
           <div class="MediaLinks">
-            <a class="MediaLink" href="#" target="_blank" rel="noopener">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M7 3h7l5 5v13H7V3Z" stroke="currentColor" stroke-width="2"/>
-                <path d="M14 3v5h5" stroke="currentColor" stroke-width="2"/>
-              </svg>
+            <a class="MediaLink" href="https://www.instagram.com/justinzitt/" target="_blank" rel="noopener">
+              <img class="MediaLink__icon" src="../Resources/Pictograms/IG_6a2f86.png" alt="" />
               <div class="MediaLink__text">
-                <strong>Press Photos</strong>
-                <span>Download a curated selection of high-resolution portrait and press images.</span>
+                <strong>Instagram</strong>
+                <span>News, short updates, and visual material around concerts, recordings, and current work.</span>
               </div>
             </a>
 
-            <a class="MediaLink" href="#" target="_blank" rel="noopener">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M5 4h14v16H5V4Z" stroke="currentColor" stroke-width="2"/>
-                <path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="2"/>
-              </svg>
+            <a class="MediaLink" href="https://www.youtube.com/@justinzitt6363" target="_blank" rel="noopener">
+              <img class="MediaLink__icon" src="../Resources/Pictograms/YT_6a2f86.png" alt="" />
               <div class="MediaLink__text">
-                <strong>Artist Info</strong>
-                <span>A concise overview for presenters, programmers, and media use.</span>
+                <strong>YouTube</strong>
+                <span>Performance videos and selected live session material from Justin’s channel.</span>
               </div>
             </a>
 
-            <a class="MediaLink" href="#" target="_blank" rel="noopener">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 18V8l8-4 8 4v10" stroke="currentColor" stroke-width="2"/>
-                <path d="M9 22v-6h6v6" stroke="currentColor" stroke-width="2"/>
-              </svg>
+            <a class="MediaLink" href="https://open.spotify.com/intl-de/artist/5CxE6rCLGzcCUn0DxMB2as" target="_blank" rel="noopener">
+              <img class="MediaLink__icon" src="../Resources/Pictograms/SP_6a2f86.png" alt="" />
               <div class="MediaLink__text">
-                <strong>Tech Rider</strong>
-                <span>Stage and technical information for venues, festivals, and production teams.</span>
+                <strong>Spotify</strong>
+                <span>Stream FRIGO and additional releases directly on Spotify.</span>
               </div>
             </a>
 
-            <a class="MediaLink" href="#" target="_blank" rel="noopener">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 5v14" stroke="currentColor" stroke-width="2"/>
-                <path d="m6 13 6 6 6-6" stroke="currentColor" stroke-width="2"/>
-                <path d="M5 21h14" stroke="currentColor" stroke-width="2"/>
-              </svg>
+            <a class="MediaLink" href="https://music.apple.com/ch/artist/justin-zitt/1485715992" target="_blank" rel="noopener">
+              <img class="MediaLink__icon" src="../Resources/Pictograms/AP_6a2f86.png" alt="" />
               <div class="MediaLink__text">
-                <strong>Download Package</strong>
-                <span>A single folder with core visual and informational material for quick access.</span>
+                <strong>Apple Music</strong>
+                <span>Listen to FRIGO and Justin’s artist profile on Apple Music.</span>
+              </div>
+            </a>
+
+            <a class="MediaLink" href="https://www.amazon.de/FRIGO-Justin-Zitt/dp/B0FNY5CV5Z" target="_blank" rel="noopener">
+              <img class="MediaLink__icon" src="../Resources/Pictograms/AZ_6a2f86.png" alt="" />
+              <div class="MediaLink__text">
+                <strong>Amazon</strong>
+                <span>FRIGO on Amazon for listeners who insist on doing things their own way.</span>
               </div>
             </a>
           </div>
@@ -1424,10 +1019,10 @@
           <div>
             <div class="SectionIntro" style="margin-bottom:22px;">
               <p class="SectionKicker">Contact</p>
-              <h2 class="SectionTitle">Booking, inquiries, and collaborations.</h2>
+              <h2 class="SectionTitle">Booking, collaborations, and inquiries.</h2>
               <p class="SectionText">
-                For concerts, project invitations, recording work, or general questions, the direct route works best.
-                No labyrinth, no unnecessary drama, just contact.
+                For concerts, artistic collaborations, recording work, or general questions, the direct route works
+                best. Simple is good. Especially on the internet.
               </p>
             </div>
 
@@ -1450,14 +1045,26 @@
                 </svg>
                 <div class="ContactLine__text">
                   <strong>Amsterdam, NL</strong>
-                  <small>Available for performances in the Netherlands, across Europe, and in international project contexts.</small>
+                  <small>Available for performances, recordings, and project contexts in the Netherlands and beyond.</small>
                 </div>
               </div>
 
-              <div class="Hero__ctaRow" style="margin-top:18px;">
-                <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Instagram</a>
-                <a class="btn btn--soft" href="#" target="_blank" rel="noopener">YouTube</a>
-                <a class="btn btn--soft" href="#" target="_blank" rel="noopener">Spotify</a>
+              <div class="ContactSocials">
+                <a class="IconBtn" href="https://www.instagram.com/justinzitt/" target="_blank" rel="noopener" aria-label="Instagram">
+                  <img src="../Resources/Pictograms/IG_6a2f86.png" alt="" />
+                </a>
+                <a class="IconBtn" href="https://www.youtube.com/@justinzitt6363" target="_blank" rel="noopener" aria-label="YouTube">
+                  <img src="../Resources/Pictograms/YT_6a2f86.png" alt="" />
+                </a>
+                <a class="IconBtn" href="https://open.spotify.com/intl-de/artist/5CxE6rCLGzcCUn0DxMB2as" target="_blank" rel="noopener" aria-label="Spotify">
+                  <img src="../Resources/Pictograms/SP_6a2f86.png" alt="" />
+                </a>
+                <a class="IconBtn" href="https://music.apple.com/ch/artist/justin-zitt/1485715992" target="_blank" rel="noopener" aria-label="Apple Music">
+                  <img src="../Resources/Pictograms/AP_6a2f86.png" alt="" />
+                </a>
+                <a class="IconBtn" href="https://www.amazon.de/FRIGO-Justin-Zitt/dp/B0FNY5CV5Z" target="_blank" rel="noopener" aria-label="Amazon">
+                  <img src="../Resources/Pictograms/AZ_6a2f86.png" alt="" />
+                </a>
               </div>
             </div>
           </div>
@@ -1465,7 +1072,7 @@
           <div>
             <img
               class="imageLarge"
-              src="../Resources/Photos/Portrait_Tu%CC%88r1%20%CD%AE%20Nikolai%20Olshansky(komprimiert).png"
+              src="../Resources/Content/Justin4.png"
               alt="Justin Zitt portrait"
               loading="lazy"
               decoding="async"
@@ -1476,89 +1083,13 @@
     </section>
   </main>
 
-  <footer class="Footer" aria-label="Footer">
-    <div class="container">
-      <div class="Footer__row">
-        <div>© <span id="y"></span> Justin Zitt</div>
-        <div>
-          <a href="../Legal/imprint.html">Imprint</a> ·
-          <a href="../Legal/privacy.html">Privacy</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="FootbarSlot"></div>
+  <div id="CookieSlot"></div>
+
+  <script src="../Scripts/includes.js"></script>
 
   <script>
-    document.getElementById("y").textContent = String(new Date().getFullYear());
-
     (function(){
-      const burger = document.querySelector(".Burger");
-      const panel = document.getElementById("MobileMenu");
-      const navLinks = Array.from(document.querySelectorAll(".js-nav"));
-      const sections = ["about","frigo","projects","live","media","contact"]
-        .map(id => document.getElementById(id))
-        .filter(Boolean);
-
-      function setOpen(isOpen){
-        burger?.setAttribute("aria-expanded", String(isOpen));
-        panel?.classList.toggle("is-open", isOpen);
-      }
-
-      burger?.addEventListener("click", () => {
-        const open = burger.getAttribute("aria-expanded") === "true";
-        setOpen(!open);
-      });
-
-      function scrollToTarget(id){
-        const el = document.getElementById(id);
-        if(!el) return;
-        const headerH = document.querySelector(".Headbar")?.offsetHeight || 76;
-        const y = el.getBoundingClientRect().top + window.pageYOffset - (headerH + 22);
-        window.scrollTo({ top:y, behavior:"smooth" });
-      }
-
-      navLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
-          const target = link.getAttribute("data-target");
-          if(!target) return;
-          e.preventDefault();
-          setOpen(false);
-          scrollToTarget(target);
-        });
-      });
-
-      function setActive(id){
-        const links = Array.from(document.querySelectorAll(".Headbar__nav a, .MobileMenu__list a"));
-        links.forEach(a => a.classList.toggle("is-active", a.getAttribute("data-target") === id));
-      }
-
-      if("IntersectionObserver" in window && sections.length){
-        const obs = new IntersectionObserver((entries) => {
-          const visible = entries
-            .filter(e => e.isIntersecting)
-            .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-          if(visible?.target?.id) setActive(visible.target.id);
-        }, {
-          threshold:[0.2,0.4,0.6],
-          rootMargin:"-20% 0px -55% 0px"
-        });
-
-        sections.forEach(section => obs.observe(section));
-      }
-
-      document.addEventListener("keydown", (e) => {
-        if(e.key === "Escape") setOpen(false);
-      });
-
-      document.addEventListener("click", (e) => {
-        const open = burger?.getAttribute("aria-expanded") === "true";
-        if(!open) return;
-        const head = document.querySelector(".Headbar");
-        if(head?.contains(e.target)) return;
-        if(panel?.contains(e.target)) return;
-        setOpen(false);
-      });
-
       const gigList = document.getElementById("GigList");
       const showMoreBtn = document.getElementById("ShowMoreGigsBtn");
 

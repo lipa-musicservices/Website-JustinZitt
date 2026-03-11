@@ -1,80 +1,321 @@
+<!--
+==============================================================================
+    __    _ ____            __  ___           _         _____                 _
+   / /   (_) __ \____ _    /  |/  /_  _______(_)____   / ___/___  ______   __(_)_______  _____
+  / /   / / /_/ / __ `/   / /|_/ / / / / ___/ / ___/   \__ \/ _ \/ ___/ | / / / ___/ _ \/ ___/
+ / /___/ / ____/ /_/ /   / /  / / /_/ (__  ) / /__    ___/ /  __/ /   | |/ / / /__/  __(__  )
+/_____/_/_/    \__,_/   /_/  /_/\__,_/____/_/\___/   /____/\___/_/    |___/_/\___/\___/____/
+
+   LiPa Music Services – Abteilung Webentwicklung
+   © 2026 LiPa Music Services GbR
+   https://www.lipamusicservices.com
+==============================================================================
+-->
 <footer class="Footbar" role="contentinfo">
-  <div class="Footbar__inner">
+  <style>
+    .Footbar{
+      margin-top:0;
+      color:#f7efe6;
+      background:
+        radial-gradient(780px 260px at 8% 0%, rgba(170,112,63,.18), rgba(0,0,0,0) 60%),
+        radial-gradient(620px 240px at 92% 0%, rgba(106,47,134,.14), rgba(0,0,0,0) 58%),
+        linear-gradient(180deg, #251914 0%, #18110e 100%);
+      border-top:1px solid rgba(255,255,255,.08);
+      overflow:hidden;
+    }
 
-    <!-- Brand -->
-    <section class="Footbar__col Footbar__col--brand" aria-label="Brand">
-      <div class="Footbar__brand">Sandrine Neye</div>
-      <div class="Footbar__copy">© <span id="YearSlot"></span></div>
+    .Footbar a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-      <div class="Footbar__location">
-        Karlsruhe, Deutschland<br><br>
-        <a class="Footbar__contactLink" href="tel:+49123456789">+49 123 456789</a>
-        <a class="Footbar__contactLink" href="mailto:info@sandrineneye.de">info@sandrineneye.de</a>
-      </div>
-    </section>
+    .Footbar__wrap{
+      width:min(1160px, calc(100% - 32px));
+      margin:0 auto;
+      padding:24px 0 14px;
+    }
 
-    <!-- Pages -->
-    <nav class="Footbar__col Footbar__col--pages" aria-label="Seiten">
-      <div class="Footbar__title">Seiten</div>
-      <ul class="Footbar__list">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./vita.html">Vita</a></li>
-        <li><a href="./concerts.html">Konzerte</a></li>
-        <li><a href="./gallery.html">Galerie</a></li>
-        <li><a href="./projects.html">Projekte</a></li>
-        <li><a href="./press.html">Pressestimmen</a></li>
-        <li><a href="./contact.html">Kontakt</a></li>
-      </ul>
-    </nav>
+    .Footbar__top{
+      display:grid;
+      grid-template-columns:1.15fr .9fr .95fr;
+      gap:28px;
+      align-items:start;
+    }
 
-    <!-- Spacer / optional column (keeps grid balanced on desktop) -->
-    <div class="Footbar__col Footbar__col--spacer" aria-hidden="true"></div>
+    .Footbar__brand{
+      font-size:clamp(24px, 2.7vw, 34px);
+      line-height:1;
+      font-weight:900;
+      letter-spacing:-.03em;
+      color:#fff8f0;
+      margin:0 0 12px 0;
+    }
 
-  </div>
+    .Footbar__copy{
+      margin:0 0 14px 0;
+      font-size:10.3pt;
+      font-weight:700;
+      color:rgba(247,239,230,.72);
+    }
 
-  <!-- Bottom (Social row above line, Legal in bottom bar) -->
-  <div class="Footbar__bottom">
+    .Footbar__contact{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-bottom:16px;
+    }
 
-    <!-- Social icons row -->
-    <ul class="FootbarSocialRow" aria-label="Social Links">
-      <li>
-        <a class="FootbarSocialRow__btn" href="https://www.instagram.com/sandrine_neye/" target="_blank" rel="noopener noreferrer" aria-label="Instagram öffnen">
-          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/IG.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-        </a>
-      </li>
-      <li>
-        <a class="FootbarSocialRow__btn" href="https://www.youtube.com/@sandrineneye" target="_blank" rel="noopener noreferrer" aria-label="YouTube öffnen">
-          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/YT.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-        </a>
-      </li>
-      <li>
-        <a class="FootbarSocialRow__btn" href="https://open.spotify.com/intl-de/artist/61zOIoHkxLEKAQxIRl2nuf?si=FqQm0DscSDCj8iDrxYn6fQ" target="_blank" rel="noopener noreferrer" aria-label="Spotify öffnen">
-          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/SP.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-        </a>
-      </li>
-      <li>
-        <a class="FootbarSocialRow__btn" href="https://www.facebook.com/sandrine.neye" target="_blank" rel="noopener noreferrer" aria-label="Facebook öffnen">
-          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/FB.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-        </a>
-      </li>
-      <li>
-        <a class="FootbarSocialRow__btn" href="https://music.apple.com/de/artist/sandrine-neye/1629703562" target="_blank" rel="noopener noreferrer" aria-label="Apple Music öffnen">
-          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/AP.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-        </a>
-      </li>
-      <li>
-        <a class="FootbarSocialRow__btn" href="https://amazon.com/music/player/albums/B0B4384B9K?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_JA5EDlbk90Hg8itzHnL9zrEsY" target="_blank" rel="noopener noreferrer" aria-label="Amazon Music öffnen">
-          <img class="FootbarSocialRow__img" src="../Resources/Pictograms/AZ.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-        </a>
-      </li>
-    </ul>
+    .Footbar__contactLink{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:fit-content;
+      color:#fff8f0;
+      font-weight:700;
+      transition:opacity .16s ease, transform .16s ease;
+    }
 
-    <!-- Bottom line: Legal left, Powered center/right -->
-    <div class="Footbar__bottomInner">
-      <nav class="FootbarLegal" aria-label="Rechtliches">
-        <a href="Legal/impressum.html">Impressum</a>
+    .Footbar__contactLink:hover{
+      opacity:.88;
+      transform:translateX(2px);
+    }
+
+    .Footbar__icon{
+      width:16px;
+      height:16px;
+      flex:0 0 auto;
+      opacity:.82;
+    }
+
+    .Footbar__social{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .Footbar__socialBtn{
+      width:40px;
+      height:40px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:12px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      transition:transform .16s ease, background .16s ease, border-color .16s ease;
+    }
+
+    .Footbar__socialBtn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.09);
+      border-color:rgba(255,255,255,.16);
+    }
+
+    .Footbar__socialBtn img{
+      width:18px;
+      height:18px;
+      display:block;
+      object-fit:contain;
+    }
+
+    .Footbar__title{
+      margin:2px 0 12px 0;
+      font-size:9.8pt;
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#d8b892;
+    }
+
+    .Footbar__list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px 18px;
+    }
+
+    .Footbar__list a{
+      color:rgba(247,239,230,.84);
+      font-weight:700;
+      transition:color .16s ease, transform .16s ease;
+    }
+
+    .Footbar__list a:hover{
+      color:#ffffff;
+      transform:translateX(2px);
+    }
+
+    .Footbar__infoText{
+      margin:0;
+      color:rgba(247,239,230,.74);
+      line-height:1.68;
+      font-size:10.6pt;
+      max-width:34ch;
+    }
+
+    .Footbar__bottom{
+      margin-top:18px;
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .FootbarLegal{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:10px;
+      color:rgba(247,239,230,.72);
+      font-size:10.2pt;
+    }
+
+    .FootbarLegal a{
+      transition:color .16s ease;
+    }
+
+    .FootbarLegal a:hover{
+      color:#ffffff;
+    }
+
+    .FootbarLegal__sep{
+      opacity:.45;
+    }
+
+    .Footbar__powered{
+      font-size:10.2pt;
+      font-weight:700;
+      color:#d8b892;
+      text-align:right;
+    }
+
+    .Footbar__powered a{
+      transition:color .16s ease, opacity .16s ease;
+    }
+
+    .Footbar__powered a:hover{
+      color:#fff8f0;
+    }
+
+    @media (max-width: 980px){
+      .Footbar__top{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .Footbar__col--info{
+        grid-column:1 / -1;
+      }
+    }
+
+    @media (max-width: 720px){
+      .Footbar__wrap{
+        padding:20px 0 12px;
+      }
+
+      .Footbar__top{
+        grid-template-columns:1fr;
+        gap:20px;
+      }
+
+      .Footbar__list{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .Footbar__bottom{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .Footbar__powered{
+        text-align:left;
+      }
+    }
+
+    @media (max-width: 520px){
+      .Footbar__list{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <div class="Footbar__wrap">
+    <div class="Footbar__top">
+
+      <section class="Footbar__col Footbar__col--brand" aria-label="Brand">
+        <div class="Footbar__brand">Justin Zitt</div>
+        <p class="Footbar__copy">© <span id="YearSlot"></span></p>
+
+        <div class="Footbar__contact">
+          <a class="Footbar__contactLink" href="mailto:booking@justinzitt.com">
+            <svg class="Footbar__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2"/>
+              <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>booking@justinzitt.com</span>
+          </a>
+
+          <a class="Footbar__contactLink" href="https://www.google.com/maps/search/Amsterdam,+Netherlands" target="_blank" rel="noopener noreferrer">
+            <svg class="Footbar__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>Amsterdam, NL</span>
+          </a>
+        </div>
+
+        <div class="Footbar__social" aria-label="Social Links">
+          <a class="Footbar__socialBtn" href="https://www.instagram.com/justinzitt/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram">
+            <img src="../Resources/Pictograms/IG.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+          </a>
+          <a class="Footbar__socialBtn" href="https://www.youtube.com/@justinzitt6363" target="_blank" rel="noopener noreferrer" aria-label="Open YouTube">
+            <img src="../Resources/Pictograms/YT.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+          </a>
+          <a class="Footbar__socialBtn" href="https://open.spotify.com/intl-de/artist/5CxE6rCLGzcCUn0DxMB2as" target="_blank" rel="noopener noreferrer" aria-label="Open Spotify">
+            <img src="../Resources/Pictograms/SP.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+          </a>
+          <a class="Footbar__socialBtn" href="https://music.apple.com/ch/artist/justin-zitt/1485715992" target="_blank" rel="noopener noreferrer" aria-label="Open Apple Music">
+            <img src="../Resources/Pictograms/AP.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+          </a>
+          <a class="Footbar__socialBtn" href="https://www.amazon.de/FRIGO-Justin-Zitt/dp/B0FNY5CV5Z" target="_blank" rel="noopener noreferrer" aria-label="Open Amazon">
+            <img src="../Resources/Pictograms/AZ.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+          </a>
+        </div>
+      </section>
+
+      <nav class="Footbar__col Footbar__col--pages" aria-label="Pages">
+        <div class="Footbar__title">Pages</div>
+        <ul class="Footbar__list">
+          <li><a href="./index.html#top">Home</a></li>
+          <li><a href="./index.html#about">About</a></li>
+          <li><a href="./index.html#frigo">FRIGO</a></li>
+          <li><a href="./index.html#projects">Projects</a></li>
+          <li><a href="./index.html#live">Live</a></li>
+          <li><a href="./index.html#media">Media</a></li>
+          <li><a href="./index.html#contact">Contact</a></li>
+          <li><a href="./shop.html">Online-Shop</a></li>
+        </ul>
+      </nav>
+
+      <section class="Footbar__col Footbar__col--info" aria-label="Information">
+        <div class="Footbar__title">Info</div>
+        <p class="Footbar__infoText">
+          Quick access to all main onepager sections and the online shop.
+        </p>
+      </section>
+
+    </div>
+
+    <div class="Footbar__bottom">
+      <nav class="FootbarLegal" aria-label="Legal">
+        <a href="../Legal/imprint.html">Imprint</a>
         <span class="FootbarLegal__sep">•</span>
-        <a href="Legal/datenschutz.html">Datenschutz</a>
+        <a href="../Legal/privacy.html">Privacy</a>
       </nav>
 
       <div class="Footbar__powered">
