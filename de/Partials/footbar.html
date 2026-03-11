@@ -17,8 +17,8 @@
       margin:0;
       color:#f6eee5;
       background:
-        radial-gradient(700px 220px at 8% 0%, rgba(170,112,63,.15), rgba(0,0,0,0) 58%),
-        radial-gradient(560px 220px at 92% 0%, rgba(106,47,134,.12), rgba(0,0,0,0) 56%),
+        radial-gradient(720px 240px at 8% 0%, rgba(170,112,63,.14), rgba(0,0,0,0) 58%),
+        radial-gradient(540px 220px at 92% 0%, rgba(106,47,134,.12), rgba(0,0,0,0) 56%),
         linear-gradient(180deg, #241813 0%, #17100d 100%);
       border-top:1px solid rgba(255,255,255,.08);
       overflow:hidden;
@@ -32,13 +32,13 @@
     .Footbar__wrap{
       width:min(1160px, calc(100% - 32px));
       margin:0 auto;
-      padding:20px 0 12px;
+      padding:22px 0 12px;
     }
 
     .Footbar__top{
       display:grid;
-      grid-template-columns:1.1fr .95fr .75fr;
-      gap:24px;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
       align-items:start;
     }
 
@@ -52,8 +52,8 @@
     }
 
     .Footbar__copy{
-      margin:0 0 12px 0;
-      font-size:10.2pt;
+      margin:0 0 14px 0;
+      font-size:10.3pt;
       font-weight:700;
       color:rgba(246,238,229,.74);
     }
@@ -61,8 +61,8 @@
     .Footbar__contact{
       display:flex;
       flex-direction:column;
-      gap:8px;
-      margin:0 0 14px 0;
+      gap:10px;
+      margin:0;
     }
 
     .Footbar__contactLink{
@@ -87,11 +87,50 @@
       opacity:.82;
     }
 
-    .Footbar__social{
+    .Footbar__title{
+      margin:0 0 12px 0;
+      font-size:9.8pt;
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#d8b892;
+    }
+
+    .Footbar__list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px 28px;
+      max-width:360px;
+    }
+
+    .Footbar__list li{
+      margin:0;
+      padding:0;
+    }
+
+    .Footbar__list a{
+      display:inline-block;
+      color:rgba(246,238,229,.86);
+      font-weight:700;
+      transition:color .16s ease, transform .16s ease;
+    }
+
+    .Footbar__list a:hover{
+      color:#ffffff;
+      transform:translateX(2px);
+    }
+
+    .Footbar__socialRow{
       display:flex;
       align-items:center;
       gap:8px;
       flex-wrap:wrap;
+      margin-top:18px;
+      padding-top:14px;
+      border-top:1px solid rgba(255,255,255,.08);
     }
 
     .Footbar__socialBtn{
@@ -119,52 +158,9 @@
       object-fit:contain;
     }
 
-    .Footbar__title{
-      margin:2px 0 10px 0;
-      font-size:9.6pt;
-      font-weight:900;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:#d8b892;
-    }
-
-    .Footbar__list{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px 18px;
-    }
-
-    .Footbar__list li{
-      margin:0;
-      padding:0;
-    }
-
-    .Footbar__list a{
-      display:inline-block;
-      color:rgba(246,238,229,.84);
-      font-weight:700;
-      transition:color .16s ease, transform .16s ease;
-    }
-
-    .Footbar__list a:hover{
-      color:#ffffff;
-      transform:translateX(2px);
-    }
-
-    .Footbar__infoText{
-      margin:0;
-      color:rgba(246,238,229,.74);
-      line-height:1.62;
-      font-size:10.4pt;
-      max-width:30ch;
-    }
-
     .Footbar__bottom{
       margin-top:16px;
-      padding-top:10px;
+      padding-top:12px;
       border-top:1px solid rgba(255,255,255,.08);
       display:flex;
       align-items:center;
@@ -179,7 +175,7 @@
       align-items:center;
       gap:10px;
       color:rgba(246,238,229,.72);
-      font-size:10.1pt;
+      font-size:10.2pt;
     }
 
     .FootbarLegal a{
@@ -195,53 +191,33 @@
     }
 
     .Footbar__powered{
-      font-size:10.1pt;
+      font-size:10.2pt;
       font-weight:700;
       color:#d8b892;
       text-align:right;
     }
 
     .Footbar__powered a{
-      transition:color .16s ease, opacity .16s ease;
+      transition:color .16s ease;
     }
 
     .Footbar__powered a:hover{
       color:#fff8f0;
     }
 
-    @media (max-width: 980px){
-      .Footbar__top{
-        grid-template-columns:1fr 1fr;
-        gap:22px;
-      }
-
-      .Footbar__col--info{
-        grid-column:1 / -1;
-      }
-
-      .Footbar__infoText{
-        max-width:none;
-      }
-    }
-
-    @media (max-width: 720px){
-      .Footbar__wrap{
-        padding:18px 0 12px;
-      }
-
+    @media (max-width: 820px){
       .Footbar__top{
         grid-template-columns:1fr;
-        gap:18px;
+        gap:24px;
       }
 
       .Footbar__list{
-        grid-template-columns:1fr 1fr;
+        max-width:none;
       }
 
       .Footbar__bottom{
         flex-direction:column;
         align-items:flex-start;
-        gap:10px;
       }
 
       .Footbar__powered{
@@ -252,6 +228,7 @@
     @media (max-width: 520px){
       .Footbar__list{
         grid-template-columns:1fr;
+        gap:9px;
       }
     }
   </style>
@@ -259,7 +236,7 @@
   <div class="Footbar__wrap">
     <div class="Footbar__top">
 
-      <section class="Footbar__col Footbar__col--brand" aria-label="Brand">
+      <section class="Footbar__col Footbar__col--left" aria-label="Artist information">
         <h2 class="Footbar__brand">Justin Zitt</h2>
         <p class="Footbar__copy">© <span id="YearSlot"></span></p>
 
@@ -280,27 +257,9 @@
             <span>Amsterdam, NL</span>
           </a>
         </div>
-
-        <div class="Footbar__social" aria-label="Social Links">
-          <a class="Footbar__socialBtn" href="https://www.instagram.com/justinzitt/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram">
-            <img src="../Resources/Pictograms/IG.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-          </a>
-          <a class="Footbar__socialBtn" href="https://www.youtube.com/@justinzitt6363" target="_blank" rel="noopener noreferrer" aria-label="Open YouTube">
-            <img src="../Resources/Pictograms/YT.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-          </a>
-          <a class="Footbar__socialBtn" href="https://open.spotify.com/intl-de/artist/5CxE6rCLGzcCUn0DxMB2as" target="_blank" rel="noopener noreferrer" aria-label="Open Spotify">
-            <img src="../Resources/Pictograms/SP.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-          </a>
-          <a class="Footbar__socialBtn" href="https://music.apple.com/ch/artist/justin-zitt/1485715992" target="_blank" rel="noopener noreferrer" aria-label="Open Apple Music">
-            <img src="../Resources/Pictograms/AP.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-          </a>
-          <a class="Footbar__socialBtn" href="https://www.amazon.de/FRIGO-Justin-Zitt/dp/B0FNY5CV5Z" target="_blank" rel="noopener noreferrer" aria-label="Open Amazon">
-            <img src="../Resources/Pictograms/AZ.png" alt="" width="24" height="24" loading="lazy" decoding="async">
-          </a>
-        </div>
       </section>
 
-      <nav class="Footbar__col Footbar__col--pages" aria-label="Pages">
+      <nav class="Footbar__col Footbar__col--right" aria-label="Pages">
         <div class="Footbar__title">Pages</div>
         <ul class="Footbar__list">
           <li><a href="./index.html#top">Home</a></li>
@@ -314,13 +273,24 @@
         </ul>
       </nav>
 
-      <section class="Footbar__col Footbar__col--info" aria-label="Information">
-        <div class="Footbar__title">Info</div>
-        <p class="Footbar__infoText">
-          Quick access to all main sections, music platforms, contact details, and the online shop.
-        </p>
-      </section>
+    </div>
 
+    <div class="Footbar__socialRow" aria-label="Social Links">
+      <a class="Footbar__socialBtn" href="https://www.instagram.com/justinzitt/" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram">
+        <img src="../Resources/Pictograms/IG.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+      </a>
+      <a class="Footbar__socialBtn" href="https://www.youtube.com/@justinzitt6363" target="_blank" rel="noopener noreferrer" aria-label="Open YouTube">
+        <img src="../Resources/Pictograms/YT.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+      </a>
+      <a class="Footbar__socialBtn" href="https://open.spotify.com/intl-de/artist/5CxE6rCLGzcCUn0DxMB2as" target="_blank" rel="noopener noreferrer" aria-label="Open Spotify">
+        <img src="../Resources/Pictograms/SP.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+      </a>
+      <a class="Footbar__socialBtn" href="https://music.apple.com/ch/artist/justin-zitt/1485715992" target="_blank" rel="noopener noreferrer" aria-label="Open Apple Music">
+        <img src="../Resources/Pictograms/AP.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+      </a>
+      <a class="Footbar__socialBtn" href="https://www.amazon.de/FRIGO-Justin-Zitt/dp/B0FNY5CV5Z" target="_blank" rel="noopener noreferrer" aria-label="Open Amazon">
+        <img src="../Resources/Pictograms/AZ.png" alt="" width="24" height="24" loading="lazy" decoding="async">
+      </a>
     </div>
 
     <div class="Footbar__bottom">
