@@ -32,16 +32,6 @@
   />
 
   <style>
-    body{
-      margin:0;
-      color:var(--text);
-      background:
-        radial-gradient(1000px 500px at 10% 0%, rgba(200,171,132,.18), rgba(0,0,0,0) 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(143,107,70,.08), rgba(0,0,0,0) 60%),
-        linear-gradient(180deg, #fbf7f0 0%, var(--bg) 72%, #1a120f 100%);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      overflow-x:hidden;
-    }
     :root{
       --bg:#f7f3eb;
       --bg-soft:#efe8dc;
@@ -90,7 +80,6 @@
       margin:0 auto;
     }
 
-    /* Slots for partials */
     #HeadbarSlot,
     #FootbarSlot,
     #CookieSlot{
@@ -1134,6 +1123,91 @@
         });
       }
     })();
+  </script>
+
+  <script>
+    function initJustinHeadbarBurger(){
+      const root = document.querySelector(".HeadbarWrap");
+      if(!root) return;
+
+      const burger = root.querySelector(".Burger");
+      const panel = root.querySelector(".MobileMenu");
+      const overlay = root.querySelector(".MobileMenuOverlay");
+      const navLinks = root.querySelectorAll(".js-nav");
+
+      if(!burger || !panel || !overlay) return;
+      if(root.dataset.burgerInit === "true") return;
+
+      root.dataset.burgerInit = "true";
+
+      function setOpen(isOpen){
+        burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        panel.classList.toggle("is-open", isOpen);
+        overlay.classList.toggle("is-open", isOpen);
+        document.body.classList.toggle("MobileMenuOpen", isOpen);
+      }
+
+      burger.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = burger.getAttribute("aria-expanded") === "true";
+        setOpen(!isOpen);
+      });
+
+      overlay.addEventListener("click", function(){
+        setOpen(false);
+      });
+
+      navLinks.forEach(function(link){
+        link.addEventListener("click", function(){
+          setOpen(false);
+        });
+      });
+
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape"){
+          setOpen(false);
+        }
+      });
+
+      document.addEventListener("click", function(e){
+        const isOpen = burger.getAttribute("aria-expanded") === "true";
+        if(!isOpen) return;
+        if(root.contains(e.target)) return;
+        setOpen(false);
+      });
+
+      function setActiveFromHash(){
+        const hash = window.location.hash.replace("#", "");
+        const links = root.querySelectorAll(".Headbar__nav .js-nav, .MobileMenu__list .js-nav");
+        links.forEach(function(a){
+          a.classList.toggle("is-active", a.getAttribute("data-target") === hash);
+        });
+      }
+
+      window.addEventListener("hashchange", setActiveFromHash);
+      setActiveFromHash();
+    }
+
+    window.addEventListener("load", function(){
+      let tries = 0;
+
+      function waitForHeadbar(){
+        const headbar = document.querySelector(".HeadbarWrap");
+
+        if(headbar){
+          initJustinHeadbarBurger();
+          return;
+        }
+
+        tries++;
+        if(tries < 80){
+          setTimeout(waitForHeadbar, 100);
+        }
+      }
+
+      waitForHeadbar();
+    });
   </script>
 </body>
 </html>

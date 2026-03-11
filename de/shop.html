@@ -1,6 +1,5 @@
 <!--
 ==============================================================================
-
     __    _ ____            __  ___           _         _____                 _
    / /   (_) __ \____ _    /  |/  /_  _______(_)____   / ___/___  ______   __(_)_______  _____
   / /   / / /_/ / __ `/   / /|_/ / / / / ___/ / ___/   \__ \/ _ \/ ___/ | / / / ___/ _ \/ ___/
@@ -14,387 +13,1105 @@
 ==============================================================================
 -->
 <!doctype html>
-<html lang="de">
+<html lang="en" id="top">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <base href="./">
 
-  <title>Kontakt – Sandrine Neye</title>
-  <meta name="description" content="Kontakt zu Sandrine Neye – Singer & Songwriter." />
+  <title>Justin Zitt – Online Shop</title>
+  <meta
+    name="description"
+    content="Official online shop for Justin Zitt. Music, merchandise, sheet music, and selected items."
+  />
 
-  <!-- Google Font: Outfit -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <!-- Root assets (2 Ebenen hoch) -->
-  <link rel="icon" href="../Resources/Content/Favicon.ico" />
-  <link rel="stylesheet" href="../style.css" />
-  <script defer src="../Scripts/includes.js"></script>
-  <script defer src="../Scripts/main.js"></script>
+  <meta property="og:title" content="Justin Zitt – Online Shop" />
+  <meta
+    property="og:description"
+    content="Official online shop for music, merchandise, and selected items."
+  />
 
-<style>
-  html, body{
-    margin:0;
-    padding:0;
-    font-family:"Outfit", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background:#fff;
-    color:#0e1116;
-  }
+  <style>
+    :root{
+      --bg:#f7f3eb;
+      --bg-soft:#efe8dc;
+      --paper:#fffdf8;
+      --paper-2:#f8f1e6;
 
-  :root{
+      --line:rgba(58,45,30,.12);
+      --line-strong:rgba(58,45,30,.22);
 
-    --container:1120px;
-    --hbH:74px;
+      --text:#231c15;
+      --text-soft:#6b6258;
 
-    --muted:rgba(14,17,22,.70);
-    --border:rgba(10,16,26,.12);
+      --accent:#8f6b46;
+      --accent-2:#ccb08a;
+      --accent-dark:#6f5234;
 
-    --radius:14px;
-  }
+      --ok:#356e43;
+      --warn:#a06e26;
+      --danger:#9a4037;
 
-  /* Footer nicht in der Luft */
-  #MainContent{
-    min-height: calc(100vh - var(--hbH));
-    display:flex;
-    flex-direction:column;
-    width:100%;
-  }
+      --shadow:0 14px 42px rgba(37,25,14,.08);
+      --shadow-soft:0 8px 24px rgba(37,25,14,.05);
 
-  .Page{
-    flex:1;
-    width:100%;
-    max-width:var(--container);
-    margin:0 auto;
-    padding:44px 18px 78px;
-    box-sizing:border-box;
-  }
+      --radius:20px;
+      --container:1160px;
+      --sectionPad:88px;
+    }
 
-  /* Head */
-  .Title{
-    margin:0;
-    font-size: clamp(34px, 4.2vw, 54px);
-    font-weight:300;              /* war 900 */
-    letter-spacing:0.004em;       /* eleganter statt super-tight */
-    line-height:1.05;
-  }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
 
-  .Rule{
-    height:3px;
-    width:56px;
-    background: var(--purple);
-    border-radius:2px;
-    margin:14px 0 0;
-    opacity:.9;
-  }
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 500px at 10% 0%, rgba(200,171,132,.18), rgba(0,0,0,0) 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(143,107,70,.08), rgba(0,0,0,0) 60%),
+        linear-gradient(180deg, #fbf7f0 0%, var(--bg) 100%);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      overflow-x:hidden;
+    }
 
-  .Sub{
-    margin:12px 0 0;
-    color:var(--muted);
-    font-size:16.8px;
-    line-height:1.7;
-    max-width:75ch;
-    font-weight:400;
-  }
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-  /* Layout */
-  .Wrap{
-    margin-top:26px;
-    display:grid;
-    grid-template-columns: 1.05fr .95fr;
-    gap:18px;
-    align-items:start;
-    max-width:980px;
-  }
+    button,
+    input,
+    select{
+      font:inherit;
+    }
 
-  .Card{
-    border:0px solid var(--border);
-    border-radius:var(--radius);
-    background:#fff;
-    padding:18px 18px;
-    box-sizing:border-box;
-  }
+    .container{
+      width:min(var(--container), calc(100% - 32px));
+      margin:0 auto;
+    }
 
-  .CardTitle{
-    margin:0 0 10px;
-    font-size:13px;
-    font-weight:600;              /* war 900 */
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color: rgba(14,17,22,.60);
-  }
+    #HeadbarSlot,
+    #FootbarSlot,
+    #CookieSlot{
+      width:100%;
+    }
 
-  /* Contact rows */
-  .ContactList{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-  }
+    .ShopHero{
+      position:relative;
+      padding:132px 0 52px;
+      overflow:hidden;
+    }
 
-  .Item{
-    display:flex;
-    flex-direction:column;
-    gap:4px;
-    padding:12px 12px;
-    border:1px solid rgba(10,16,26,.08);
-    border-radius:12px;
-    background: rgba(10,16,26,.02);
-  }
+    .ShopHero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(700px 260px at 12% 0%, rgba(143,107,70,.16), rgba(0,0,0,0) 60%),
+        radial-gradient(680px 240px at 88% 0%, rgba(204,176,138,.14), rgba(0,0,0,0) 58%);
+      pointer-events:none;
+    }
 
-  .ItemLabel{
-    font-size:12px;
-    font-weight:600;              /* war 900 */
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color: rgba(14,17,22,.55);
-  }
+    .ShopHero__content{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:end;
+    }
 
-  .ItemValue{
-    font-size:18px;
-    font-weight:500;              /* war 900 */
-    letter-spacing:-0.005em;
-    line-height:1.25;
-    word-break: break-word;
-  }
+    .ShopHero__eyebrow{
+      margin:0 0 10px;
+      color:var(--accent);
+      font-size:10pt;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
 
-  a.Link{
-    color: var(--purple);
-    text-decoration:none;
-    border-bottom:2px solid rgba(104,0,104,.20);
-    padding-bottom:2px;
-  }
-  a.Link:hover{
-    color: var(--purpleDark);
-    border-bottom-color: rgba(75,0,75,.35);
-  }
+    .ShopHero h1{
+      margin:0 0 14px;
+      font-size:clamp(40px, 6vw, 78px);
+      line-height:.95;
+      letter-spacing:-.04em;
+    }
 
-  .Hint{
-    margin-top:10px;
-    color: var(--muted);
-    font-size:14px;
-    line-height:1.65;
-    font-weight:400;              /* war 650 */
-  }
+    .ShopHero__text{
+      margin:0;
+      max-width:700px;
+      color:var(--text-soft);
+      line-height:1.72;
+      font-size:12.2pt;
+    }
 
-  /* Links list */
-  .Links{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    margin:0;
-    padding:0;
-    list-style:none;
-  }
+    .ShopHero__stats{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+    }
 
-  .Links li{
-    display:flex;
-    gap:10px;
-    align-items:baseline;
-    line-height:1.55;
-  }
+    .StatCard{
+      padding:18px 16px;
+      border-radius:18px;
+      background:rgba(255,253,248,.78);
+      border:1px solid rgba(58,45,30,.08);
+      box-shadow:var(--shadow-soft);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
 
-  .Chip{
-    min-width:110px;
-    font-size:12px;
-    font-weight:600;              /* war 900 */
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color: rgba(14,17,22,.55);
-  }
+    .StatCard strong{
+      display:block;
+      font-size:18pt;
+      line-height:1;
+      margin-bottom:6px;
+    }
 
-  .Url{
-    font-weight:500;              /* war 800 */
-    color: rgba(14,17,22,.86);
-    word-break: break-word;
-  }
+    .StatCard span{
+      display:block;
+      color:var(--text-soft);
+      font-size:10.3pt;
+      line-height:1.45;
+      font-weight:700;
+    }
 
-  /* =========================
-     Link Icons (inline SVG)
-     ========================= */
-  .Links a.Link{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-  }
+    .ShopSection{
+      padding:0 0 var(--sectionPad);
+    }
 
-  .Icon{
-    width:18px;
-    height:18px;
-    flex:0 0 18px;
-    display:inline-block;
-    color: rgba(14,17,22,.72);
-    transform: translateY(1px);
-  }
+    .ShopLayout{
+      display:grid;
+      grid-template-columns:300px 1fr;
+      gap:22px;
+      align-items:start;
+    }
 
-  .Links a.Link:hover .Icon{
-    color: var(--purpleDark);
-  }
+    .FilterPanel{
+      position:sticky;
+      top:98px;
+      padding:20px;
+      border-radius:24px;
+      background:rgba(255,253,248,.82);
+      border:1px solid rgba(58,45,30,.08);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
 
-  .Icon svg{
-    width:100%;
-    height:100%;
-    display:block;
-  }
+    .FilterPanel__title{
+      margin:0 0 14px;
+      font-size:15pt;
+      font-weight:900;
+    }
 
-  @media (max-width: 920px){
-    .Wrap{ grid-template-columns:1fr; max-width:720px; }
-    .Chip{ min-width:96px; }
+    .FilterGroup{
+      margin-bottom:18px;
+    }
 
-    .Links a.Link{ gap:9px; }
-    .Icon{ width:17px; height:17px; flex-basis:17px; }
-  }
-</style>
+    .FilterGroup:last-child{
+      margin-bottom:0;
+    }
+
+    .FilterLabel{
+      display:block;
+      margin:0 0 8px;
+      font-size:10pt;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+
+    .SearchField,
+    .SelectField{
+      width:100%;
+      height:46px;
+      padding:0 14px;
+      border-radius:14px;
+      border:1px solid rgba(58,45,30,.10);
+      background:#fffdf9;
+      color:var(--text);
+      outline:none;
+      transition:border-color .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+
+    .SearchField:focus,
+    .SelectField:focus{
+      border-color:rgba(143,107,70,.30);
+      box-shadow:0 0 0 4px rgba(143,107,70,.10);
+    }
+
+    .ChipRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .Chip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:38px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(58,45,30,.10);
+      background:#fffaf3;
+      color:var(--text);
+      font-weight:800;
+      font-size:10pt;
+      cursor:pointer;
+      transition:transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease;
+    }
+
+    .Chip:hover{
+      transform:translateY(-1px);
+      background:rgba(143,107,70,.08);
+    }
+
+    .Chip.is-active{
+      background:rgba(143,107,70,.12);
+      border-color:rgba(143,107,70,.22);
+    }
+
+    .FilterActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:44px;
+      padding:10px 15px;
+      border-radius:14px;
+      border:1px solid transparent;
+      font-weight:900;
+      letter-spacing:.02em;
+      cursor:pointer;
+      transition:transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn--soft{
+      background:rgba(143,107,70,.08);
+      color:var(--text);
+      border-color:rgba(143,107,70,.14);
+    }
+
+    .btn--soft:hover{
+      background:rgba(143,107,70,.12);
+    }
+
+    .btn--primary{
+      background:var(--accent);
+      color:#fffaf3;
+      border-color:var(--accent);
+    }
+
+    .btn--primary:hover{
+      background:var(--accent-dark);
+      border-color:var(--accent-dark);
+    }
+
+    .ShopMain{
+      min-width:0;
+    }
+
+    .Toolbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .Toolbar__left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .Toolbar__right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .ResultCount{
+      font-weight:800;
+      color:var(--text-soft);
+    }
+
+    .StatusBadge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:38px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(143,107,70,.08);
+      border:1px solid rgba(143,107,70,.12);
+      color:var(--text);
+      font-weight:800;
+      font-size:10pt;
+    }
+
+    .StatusDot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:var(--warn);
+      flex:0 0 auto;
+    }
+
+    .StatusBadge.is-ready .StatusDot{ background:var(--ok); }
+    .StatusBadge.is-error .StatusDot{ background:var(--danger); }
+
+    .ProductsGrid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
+    }
+
+    .ProductCard{
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+      border-radius:24px;
+      background:rgba(255,253,248,.84);
+      border:1px solid rgba(58,45,30,.08);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .ProductCard__media{
+      aspect-ratio:4 / 3;
+      background:linear-gradient(180deg, rgba(248,241,230,.9), rgba(239,232,220,.9));
+      border-bottom:1px solid rgba(58,45,30,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+
+    .ProductCard__media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .ProductCard__placeholder{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      height:100%;
+      color:var(--text-soft);
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:10pt;
+    }
+
+    .ProductCard__placeholderBox{
+      width:72px;
+      height:72px;
+      border-radius:18px;
+      border:1px dashed rgba(58,45,30,.20);
+      background:rgba(255,255,255,.42);
+    }
+
+    .ProductCard__body{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      padding:18px;
+      flex:1;
+    }
+
+    .ProductCard__top{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
+    }
+
+    .ProductCategory{
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(143,107,70,.08);
+      border:1px solid rgba(143,107,70,.12);
+      font-size:9.5pt;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--accent-dark);
+    }
+
+    .ProductStock{
+      font-size:9.7pt;
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:var(--ok);
+      white-space:nowrap;
+    }
+
+    .ProductStock.is-low{ color:var(--warn); }
+    .ProductStock.is-out{ color:var(--danger); }
+
+    .ProductTitle{
+      margin:0;
+      font-size:16pt;
+      line-height:1.15;
+    }
+
+    .ProductDesc{
+      margin:0;
+      color:var(--text-soft);
+      line-height:1.62;
+      font-size:10.9pt;
+    }
+
+    .ProductMeta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .MetaPill{
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(58,45,30,.04);
+      border:1px solid rgba(58,45,30,.08);
+      color:var(--text-soft);
+      font-size:9.8pt;
+      font-weight:800;
+    }
+
+    .ProductFooter{
+      margin-top:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .ProductPrice{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .ProductPrice__label{
+      font-size:9.5pt;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:var(--text-soft);
+    }
+
+    .ProductPrice__value{
+      font-size:19pt;
+      line-height:1;
+      font-weight:950;
+      color:var(--text);
+    }
+
+    .ProductActions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .EmptyState,
+    .LoadingState{
+      padding:28px;
+      border-radius:24px;
+      background:rgba(255,253,248,.84);
+      border:1px solid rgba(58,45,30,.08);
+      box-shadow:var(--shadow-soft);
+      text-align:center;
+    }
+
+    .EmptyState h2,
+    .LoadingState h2{
+      margin:0 0 8px;
+      font-size:22pt;
+    }
+
+    .EmptyState p,
+    .LoadingState p{
+      margin:0;
+      color:var(--text-soft);
+      line-height:1.7;
+    }
+
+    .LoadingState{ display:none; }
+    .LoadingState.is-active{ display:block; }
+
+    .EmptyState{ display:none; }
+    .EmptyState.is-active{ display:block; }
+
+    .ShopNotice{
+      margin-top:18px;
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(143,107,70,.06);
+      border:1px solid rgba(143,107,70,.12);
+      color:var(--text-soft);
+      line-height:1.65;
+      font-size:10.7pt;
+    }
+
+    @media (max-width: 1080px){
+      .ShopHero__content,
+      .ShopLayout{
+        grid-template-columns:1fr;
+      }
+
+      .FilterPanel{
+        position:static;
+      }
+
+      .ProductsGrid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px){
+      :root{
+        --sectionPad:72px;
+      }
+
+      .ShopHero{
+        padding:118px 0 44px;
+      }
+
+      .ShopHero__stats{
+        grid-template-columns:1fr;
+      }
+
+      .ProductsGrid{
+        grid-template-columns:1fr;
+      }
+
+      .Toolbar{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div id="HeadbarSlot"></div>
 
-  <main id="MainContent">
-    <div class="Page">
+  <main>
+    <section class="ShopHero" aria-label="Shop intro">
+      <div class="container">
+        <div class="ShopHero__content">
+          <div>
+            <p class="ShopHero__eyebrow">Official Shop</p>
+            <h1>Online Shop</h1>
+<!--             <p class="ShopHero__text">
 
-      <h1 class="Title">Kontakt</h1>
-      <div class="Rule"></div>
-      <p class="Sub">
-        Buchungsanfragen, Projekte, Presse: am besten direkt per E-Mail oder Telefon.
-      </p>
-
-      <section class="Wrap" aria-label="Kontakt">
-
-        <article class="Card">
-          <div class="CardTitle">Direkt</div>
-
-          <div class="ContactList">
-            <div class="Item">
-              <div class="ItemLabel">E-Mail</div>
-              <div class="ItemValue">
-                <a class="Link" href="mailto:info@sandrineneye.de">info@sandrineneye.de</a>
-              </div>
-            </div>
-
-            <div class="Item">
-              <div class="ItemLabel">Telefon</div>
-              <div class="ItemValue">
-                <a class="Link" href="tel:49123456789">+49 123 456789</a>
-              </div>
-            </div>
+            </p> -->
           </div>
 
-        </article>
+          <!-- <div class="ShopHero__stats" aria-label="Shop overview">
+            <div class="StatCard">
+              <strong id="StatProducts">0</strong>
+              <span>Products currently loaded</span>
+            </div>
+            <div class="StatCard">
+              <strong id="StatCategories">0</strong>
+              <span>Visible categories</span>
+            </div>
+            <div class="StatCard">
+              <strong id="StatSource">Live</strong>
+              <span>data source</span>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
 
-        <aside class="Card">
-          <div class="CardTitle">Links</div>
+    <section class="ShopSection" aria-label="Products">
+      <div class="container">
+        <div class="ShopLayout">
+          <aside class="FilterPanel" aria-label="Shop filters">
+            <h2 class="FilterPanel__title">Browse Shop</h2>
 
-          <ul class="Links" aria-label="Social Links">
+            <div class="FilterGroup">
+              <label class="FilterLabel" for="ShopSearch">Search</label>
+              <input
+                id="ShopSearch"
+                class="SearchField"
+                type="search"
+                placeholder="Search products…"
+                autocomplete="off"
+              />
+            </div>
 
-            <li>
-              <span class="Chip">Instagram</span>
-              <span class="Url">
-                <a class="Link" href="https://www.instagram.com/sandrine_neye/" target="_blank" rel="noopener">
-                  <span class="Icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M7.5 2.8h9A4.7 4.7 0 0 1 21.2 7.5v9a4.7 4.7 0 0 1-4.7 4.7h-9A4.7 4.7 0 0 1 2.8 16.5v-9A4.7 4.7 0 0 1 7.5 2.8Z" stroke="currentColor" stroke-width="2"/>
-                      <path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor" stroke-width="2"/>
-                      <path d="M17.6 6.6h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-                    </svg>
-                  </span>
-                  instagram.com/sandrine_neye
-                </a>
-              </span>
-            </li>
+            <div class="FilterGroup">
+              <label class="FilterLabel" for="ShopSort">Sort</label>
+              <select id="ShopSort" class="SelectField">
+                <option value="featured">Featured</option>
+                <option value="name-asc">Name A–Z</option>
+                <option value="name-desc">Name Z–A</option>
+                <option value="price-asc">Price low to high</option>
+                <option value="price-desc">Price high to low</option>
+              </select>
+            </div>
 
-            <li>
-              <span class="Chip">YouTube</span>
-              <span class="Url">
-                <a class="Link" href="https://www.youtube.com/@sandrineneye" target="_blank" rel="noopener">
-                  <span class="Icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M21.5 8.2a3.2 3.2 0 0 0-2.3-2.3C17.3 5.4 12 5.4 12 5.4s-5.3 0-7.2.5A3.2 3.2 0 0 0 2.5 8.2 33.6 33.6 0 0 0 2.5 12s0 2.7.3 3.8a3.2 3.2 0 0 0 2.3 2.3c1.9.5 7 .5 7 .5s5.3 0 7.2-.5a3.2 3.2 0 0 0 2.3-2.3c.3-1.1.3-3.8.3-3.8s0-2.7-.3-3.8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                      <path d="M10.3 9.7 15.7 12l-5.4 2.3V9.7Z" fill="currentColor"/>
-                    </svg>
-                  </span>
-                  youtube.com/@sandrineneye
-                </a>
-              </span>
-            </li>
+            <div class="FilterGroup">
+              <span class="FilterLabel">Categories</span>
+              <div class="ChipRow" id="CategoryChips">
+                <button class="Chip is-active" type="button" data-category="all">All</button>
+              </div>
+            </div>
 
-            <li>
-              <span class="Chip">Spotify</span>
-              <span class="Url">
-                <a class="Link" href="https://open.spotify.com/intl-de/artist/61zOIoHkxLEKAQxIRl2nuf?si=FqQm0DscSDCj8iDrxYn6fQ" target="_blank" rel="noopener">
-                  <span class="Icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M12 21.2a9.2 9.2 0 1 0 0-18.4 9.2 9.2 0 0 0 0 18.4Z" stroke="currentColor" stroke-width="2"/>
-                      <path d="M7.7 10.3c2.9-1 6.7-.8 9.2.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                      <path d="M8.2 13.2c2.4-.7 5.5-.5 7.5.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".9"/>
-                      <path d="M8.7 15.9c1.9-.4 3.8-.3 5.3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".8"/>
-                    </svg>
-                  </span>
-                  open.spotify.com
-                </a>
-              </span>
-            </li>
+            <div class="FilterActions">
+              <button class="btn btn--soft" id="ResetFiltersBtn" type="button">Reset filters</button>
+              <button class="btn btn--primary" id="ReloadShopBtn" type="button">Reload data</button>
+            </div>
+          </aside>
 
-            <li>
-              <span class="Chip">Facebook</span>
-              <span class="Url">
-                <a class="Link" href="https://www.facebook.com/sandrine.neye" target="_blank" rel="noopener">
-                  <span class="Icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M14 9h2V6.5A2.5 2.5 0 0 0 13.5 4H11a3 3 0 0 0-3 3v2H6v3h2v8h3v-8h2.4L14 12H11V9.3A.3.3 0 0 1 11.3 9H14Z" fill="currentColor"/>
-                    </svg>
-                  </span>
-                  facebook.com/sandrine.neye
-                </a>
-              </span>
-            </li>
+          <section class="ShopMain">
+            <div class="Toolbar" aria-label="Shop toolbar">
+              <div class="Toolbar__left">
+                <div class="ResultCount"><span id="VisibleCount">0</span> products shown</div>
+                <div class="StatusBadge" id="DataStatusBadge">
+                  <span class="StatusDot"></span>
+                  <span id="DataStatusText">Waiting for data…</span>
+                </div>
+              </div>
 
-            <li>
-              <span class="Chip">Apple Music</span>
-              <span class="Url">
-                <a class="Link" href="https://music.apple.com/de/artist/sandrine-neye/1629703562" target="_blank" rel="noopener">
-                  <span class="Icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M16.8 13.2c0-1.7 1-2.8 2.2-3.5-0.7-1-1.8-1.6-3.1-1.7-1.3-.1-2.6.8-3.2.8-.7 0-1.7-.8-2.8-.8-2.2.1-4.4 1.8-4.4 5.4 0 1.1.2 2.3.7 3.4.6 1.3 1.5 2.9 2.7 2.9 1.0 0 1.7-.7 3-.7 1.2 0 1.8.7 3 .7 1.3 0 2.1-1.5 2.6-2.8.2-.5.4-1 .5-1.6-1.4-.6-2.2-1.9-2.2-3.5Z" fill="currentColor"/>
-                      <path d="M14.3 4.6c.6-.7 1-1.7.9-2.6-1 .1-2 .7-2.7 1.5-.6.7-1 1.7-.9 2.6 1-.1 2-.6 2.7-1.5Z" fill="currentColor"/>
-                    </svg>
-                  </span>
-                  music.apple.com
-                </a>
-              </span>
-            </li>
+              <div class="Toolbar__right">
+                <select id="MobileSortMirror" class="SelectField" style="width:220px;">
+                  <option value="featured">Featured</option>
+                  <option value="name-asc">Name A–Z</option>
+                  <option value="name-desc">Name Z–A</option>
+                  <option value="price-asc">Price low to high</option>
+                  <option value="price-desc">Price high to low</option>
+                </select>
+              </div>
+            </div>
 
-            <li>
-              <span class="Chip">Amazon</span>
-              <span class="Url">
-                <a class="Link" href="https://amazon.com/music/player/albums/B0B4384B9K?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_JA5EDlbk90Hg8itzHnL9zrEsY" target="_blank" rel="noopener">
-                  <span class="Icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M6.2 16.3c3.1 2 8.2 2 11.4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                      <path d="M15.8 16.4l2 .2-.8 1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M7.2 8.6c1.2-1.1 2.9-1.8 4.8-1.8 3.6 0 6.5 2.3 6.5 5.2 0 1.2-.5 2.3-1.4 3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".45"/>
-                    </svg>
-                  </span>
-                  amazon.com/music
-                </a>
-              </span>
-            </li>
+            <div class="LoadingState" id="LoadingState">
+              <h2>Loading products…</h2>
+              <p></p>
+            </div>
 
-          </ul>
-        </aside>
+            <div class="EmptyState" id="EmptyState">
+              <h2>No products found</h2>
+              <p>Try a different search term or reset the filters.</p>
+            </div>
 
-      </section>
+            <div class="ProductsGrid" id="ProductsGrid" aria-live="polite"></div>
 
-    </div>
+<!--             <div class="ShopNotice">
+
+            </div> -->
+          </section>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div id="FootbarSlot"></div>
   <div id="CookieSlot"></div>
 
-  <noscript>
-    <div style="padding:16px; max-width:900px; margin:0 auto;">
-      Diese Website benötigt JavaScript, um Navigation/Footer korrekt zu laden.
-    </div>
-  </noscript>
+  <script src="../Scripts/includes.js"></script>
+
+  <script>
+    (function(){
+      const shopConfig = {
+        endpointUrl: "https://script.google.com/macros/s/AKfycbwTPpDe2jIVpJJTV7Xmcx0ljVJVHnHtGyeIU-gmDp4vknUPIe4n0n51c7ioEpCos1V38Q/exec",
+        currency: "EUR",
+        locale: "de-DE",
+        sheet: "Shop"
+      };
+
+      const productsGrid = document.getElementById("ProductsGrid");
+      const searchInput = document.getElementById("ShopSearch");
+      const sortSelect = document.getElementById("ShopSort");
+      const mobileSortMirror = document.getElementById("MobileSortMirror");
+      const categoryChipsWrap = document.getElementById("CategoryChips");
+      const resetBtn = document.getElementById("ResetFiltersBtn");
+      const reloadBtn = document.getElementById("ReloadShopBtn");
+      const emptyState = document.getElementById("EmptyState");
+      const loadingState = document.getElementById("LoadingState");
+      const visibleCount = document.getElementById("VisibleCount");
+      const statProducts = document.getElementById("StatProducts");
+      const statCategories = document.getElementById("StatCategories");
+      const dataStatusBadge = document.getElementById("DataStatusBadge");
+      const dataStatusText = document.getElementById("DataStatusText");
+
+      let allProducts = [];
+      let activeCategory = "all";
+
+      function formatPrice(value, currency){
+        const number = Number(value || 0);
+        return new Intl.NumberFormat(shopConfig.locale, {
+          style: "currency",
+          currency: currency || shopConfig.currency,
+          minimumFractionDigits: 2
+        }).format(number);
+      }
+
+      function stockClass(stock){
+        if(stock === "out-of-stock") return "is-out";
+        if(stock === "low-stock") return "is-low";
+        return "";
+      }
+
+      function prettyCategory(category){
+        const map = {
+          "music": "Music",
+          "vinyl": "Vinyl",
+          "merch": "Merch",
+          "sheet-music": "Sheet Music"
+        };
+        return map[category] || startCase(category || "Item");
+      }
+
+      function startCase(value){
+        return String(value)
+          .replace(/[-_]+/g, " ")
+          .replace(/\b\w/g, function(m){ return m.toUpperCase(); });
+      }
+
+      function escapeHtml(value){
+        return String(value ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function escapeAttribute(value){
+        return String(value ?? "").replace(/"/g, "&quot;");
+      }
+
+      function productCardTemplate(product){
+        const tags = Array.isArray(product.tags) ? product.tags : [];
+        const metaHtml = tags.map(tag => `<span class="MetaPill">${escapeHtml(tag)}</span>`).join("");
+
+        const mediaHtml = product.image
+          ? `<img src="${escapeAttribute(product.image)}" alt="${escapeHtml(product.title)}" loading="lazy" decoding="async">`
+          : `
+            <div class="ProductCard__placeholder" aria-hidden="true">
+              <div class="ProductCard__placeholderBox"></div>
+              <span>No image yet</span>
+            </div>
+          `;
+
+        const targetAttr = product.external ? ` target="_blank" rel="noopener"` : "";
+
+        return `
+          <article class="ProductCard" data-category="${escapeHtml(product.category || "")}">
+            <div class="ProductCard__media">
+              ${mediaHtml}
+            </div>
+
+            <div class="ProductCard__body">
+              <div class="ProductCard__top">
+                <span class="ProductCategory">${escapeHtml(prettyCategory(product.category))}</span>
+                <span class="ProductStock ${stockClass(product.stock)}">${escapeHtml(product.stockLabel || "")}</span>
+              </div>
+
+              <div>
+                <h2 class="ProductTitle">${escapeHtml(product.title)}</h2>
+              </div>
+
+              <p class="ProductDesc">${escapeHtml(product.description || "")}</p>
+
+              <div class="ProductMeta">
+                ${product.sku ? `<span class="MetaPill">${escapeHtml(product.sku)}</span>` : ""}
+                ${metaHtml}
+              </div>
+
+              <div class="ProductFooter">
+                <div class="ProductPrice">
+                  <span class="ProductPrice__label">Price</span>
+                  <span class="ProductPrice__value">${formatPrice(product.price, product.currency)}</span>
+                </div>
+
+                <div class="ProductActions">
+                  <a class="btn btn--soft" href="${escapeAttribute(product.buttonUrl || "#")}"${targetAttr}>
+                    ${escapeHtml(product.buttonLabel || "View")}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      function getFilteredProducts(){
+        const term = (searchInput?.value || "").trim().toLowerCase();
+        const sortValue = sortSelect?.value || "featured";
+
+        let filtered = allProducts.filter(product => {
+          const matchesCategory = activeCategory === "all" || product.category === activeCategory;
+          const haystack = [
+            product.title,
+            product.description,
+            product.category,
+            ...(product.tags || []),
+            product.sku
+          ].join(" ").toLowerCase();
+
+          const matchesSearch = !term || haystack.includes(term);
+          return matchesCategory && matchesSearch;
+        });
+
+        filtered.sort((a, b) => {
+          if(sortValue === "name-asc") return String(a.title).localeCompare(String(b.title));
+          if(sortValue === "name-desc") return String(b.title).localeCompare(String(a.title));
+          if(sortValue === "price-asc") return Number(a.price || 0) - Number(b.price || 0);
+          if(sortValue === "price-desc") return Number(b.price || 0) - Number(a.price || 0);
+          return Number(a.featured || 9999) - Number(b.featured || 9999);
+        });
+
+        return filtered;
+      }
+
+      function renderProducts(){
+        const filtered = getFilteredProducts();
+
+        productsGrid.innerHTML = filtered.map(productCardTemplate).join("");
+        visibleCount.textContent = String(filtered.length);
+
+        emptyState.classList.toggle("is-active", filtered.length === 0);
+        productsGrid.style.display = filtered.length === 0 ? "none" : "grid";
+
+        const categories = new Set(allProducts.map(p => p.category).filter(Boolean));
+        if(statProducts) statProducts.textContent = String(allProducts.length);
+        if(statCategories) statCategories.textContent = String(categories.size);
+      }
+
+      function setStatus(text, type){
+        dataStatusText.textContent = text;
+        dataStatusBadge.classList.remove("is-ready", "is-error");
+        if(type === "ready") dataStatusBadge.classList.add("is-ready");
+        if(type === "error") dataStatusBadge.classList.add("is-error");
+      }
+
+      function setActiveChip(category){
+        activeCategory = category;
+        Array.from(categoryChipsWrap.querySelectorAll(".Chip")).forEach(chip => {
+          chip.classList.toggle("is-active", chip.dataset.category === category);
+        });
+      }
+
+      function buildCategoryChips(products){
+        const categories = [...new Set(products.map(p => p.category).filter(Boolean))].sort((a, b) => {
+          return prettyCategory(a).localeCompare(prettyCategory(b));
+        });
+
+        categoryChipsWrap.innerHTML = `
+          <button class="Chip is-active" type="button" data-category="all">All</button>
+          ${categories.map(category => `
+            <button class="Chip" type="button" data-category="${escapeAttribute(category)}">
+              ${escapeHtml(prettyCategory(category))}
+            </button>
+          `).join("")}
+        `;
+
+        Array.from(categoryChipsWrap.querySelectorAll(".Chip")).forEach(chip => {
+          chip.addEventListener("click", () => {
+            setActiveChip(chip.dataset.category || "all");
+            renderProducts();
+          });
+        });
+      }
+
+      async function loadProducts(){
+        loadingState.classList.add("is-active");
+        productsGrid.style.display = "none";
+        emptyState.classList.remove("is-active");
+        setStatus("Loading live data…", "");
+
+        try{
+          const url = new URL(shopConfig.endpointUrl);
+          url.searchParams.set("sheet", shopConfig.sheet);
+
+          const res = await fetch(url.toString(), {
+            method: "GET",
+            cache: "no-store"
+          });
+
+          if(!res.ok){
+            throw new Error("HTTP " + res.status);
+          }
+
+          const data = await res.json();
+
+          if(!data.ok){
+            throw new Error(data.error || "Unknown API error");
+          }
+
+          allProducts = Array.isArray(data.products) ? data.products : [];
+          buildCategoryChips(allProducts);
+          setActiveChip("all");
+          setStatus("Live data loaded", "ready");
+        }catch(error){
+          console.warn("[shop] loading failed:", error);
+          allProducts = [];
+          buildCategoryChips([]);
+          setActiveChip("all");
+          setStatus("Data source unavailable", "error");
+        }finally{
+          loadingState.classList.remove("is-active");
+          renderProducts();
+        }
+      }
+
+      function bindEvents(){
+        searchInput?.addEventListener("input", renderProducts);
+
+        sortSelect?.addEventListener("change", () => {
+          if(mobileSortMirror) mobileSortMirror.value = sortSelect.value;
+          renderProducts();
+        });
+
+        mobileSortMirror?.addEventListener("change", () => {
+          if(sortSelect) sortSelect.value = mobileSortMirror.value;
+          renderProducts();
+        });
+
+        resetBtn?.addEventListener("click", () => {
+          if(searchInput) searchInput.value = "";
+          if(sortSelect) sortSelect.value = "featured";
+          if(mobileSortMirror) mobileSortMirror.value = "featured";
+          setActiveChip("all");
+          renderProducts();
+        });
+
+        reloadBtn?.addEventListener("click", loadProducts);
+      }
+
+      bindEvents();
+      loadProducts();
+
+      document.addEventListener("partials:loaded", function(){
+        const yearSlots = document.querySelectorAll("#YearSlot, .YearSlot, [data-current-year]");
+        if(yearSlots.length){
+          const year = String(new Date().getFullYear());
+          yearSlots.forEach(el => { el.textContent = year; });
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    function initJustinHeadbarBurger(){
+      const root = document.querySelector(".HeadbarWrap");
+      if(!root) return;
+
+      const burger = root.querySelector(".Burger");
+      const panel = root.querySelector(".MobileMenu");
+      const overlay = root.querySelector(".MobileMenuOverlay");
+      const navLinks = root.querySelectorAll(".js-nav");
+
+      if(!burger || !panel || !overlay) return;
+      if(root.dataset.burgerInit === "true") return;
+
+      root.dataset.burgerInit = "true";
+
+      function setOpen(isOpen){
+        burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        panel.classList.toggle("is-open", isOpen);
+        overlay.classList.toggle("is-open", isOpen);
+        document.body.classList.toggle("MobileMenuOpen", isOpen);
+      }
+
+      burger.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = burger.getAttribute("aria-expanded") === "true";
+        setOpen(!isOpen);
+      });
+
+      overlay.addEventListener("click", function(){
+        setOpen(false);
+      });
+
+      navLinks.forEach(function(link){
+        link.addEventListener("click", function(){
+          setOpen(false);
+        });
+      });
+
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape"){
+          setOpen(false);
+        }
+      });
+
+      document.addEventListener("click", function(e){
+        const isOpen = burger.getAttribute("aria-expanded") === "true";
+        if(!isOpen) return;
+        if(root.contains(e.target)) return;
+        setOpen(false);
+      });
+
+      function setActiveFromHash(){
+        const hash = window.location.hash.replace("#", "");
+        const links = root.querySelectorAll(".Headbar__nav .js-nav, .MobileMenu__list .js-nav");
+        links.forEach(function(a){
+          a.classList.toggle("is-active", a.getAttribute("data-target") === hash);
+        });
+      }
+
+      window.addEventListener("hashchange", setActiveFromHash);
+      setActiveFromHash();
+    }
+
+    window.addEventListener("load", function(){
+      let tries = 0;
+
+      function waitForHeadbar(){
+        const headbar = document.querySelector(".HeadbarWrap");
+
+        if(headbar){
+          initJustinHeadbarBurger();
+          return;
+        }
+
+        tries++;
+        if(tries < 80){
+          setTimeout(waitForHeadbar, 100);
+        }
+      }
+
+      waitForHeadbar();
+    });
+  </script>
 </body>
 </html>
